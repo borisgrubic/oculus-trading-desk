@@ -1,0 +1,1 @@
+ADD_PROJECT_EXECUTABLE(vrtradingdesk VRTradingDesk.cpp)
