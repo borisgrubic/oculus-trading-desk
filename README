@@ -1,0 +1,31 @@
+##################################################################################
+Fedora Dependencies:
+
+Please modify if you add/find more dependencies:
+
+> sudo yum install glm-devel glfw glfw-devel glew-devel libgudev1-devel cmake gcc-c++
+
+for some reason libudev was not symlinked, so:
+
+> sudo ln -s /usr/lib64/libudev.so.1 /usr/lib64/libudev.so
+
+
+
+
+
+##################################################################################
+Building the project:
+
+> to build the Makefiles
+cmake .
+
+> to build with the gui
+ccmake .
+
+> to build the project (asuming you have 4 cpus)
+make -j8
+
+> to run the tests
+make test
+
+
