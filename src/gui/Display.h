@@ -5,7 +5,6 @@
 #include <glm/glm.hpp>
 
 void Init(bool displayOnScreen);
-void InitBuffers();
 void RunDisplay();
 void ClearWindowDisplay();
 

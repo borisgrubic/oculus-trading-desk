@@ -95,6 +95,9 @@ void Init(bool displayOnScreen){
 	// Initialise the shader program
 	InitProgram();
 
+        InitBuffers();
+        InitTestGraphBuffers();
+        
 }
 
 void UpdateView(glm::mat4 eyeModelView, glm::mat4 eyeProjection){
@@ -103,9 +106,22 @@ void UpdateView(glm::mat4 eyeModelView, glm::mat4 eyeProjection){
 	glm::vec3 eulerAngles;
 	device->pFusionResult->GetOrientation().GetEulerAngles<Axis_X, Axis_Y, Axis_Z, Rotate_CW, Handed_R>(&eulerAngles.x, &eulerAngles.y, &eulerAngles.z);
 
-	// Convert to GLM quaternion
-	glm::quat orientation = glm::quat(eulerAngles);
-
+        // Check we are inside limits of scope of view
+        // and if not set view to the closest limit
+        if(eulerAngles.x>1.5){
+            eulerAngles.x = 1.5;
+        } else if(eulerAngles.x<-1.5){
+            eulerAngles.x = -1.5;
+        }
+        if(eulerAngles.y>1.5){
+            eulerAngles.y = 1.5;
+        } else if(eulerAngles.y<-1.5){
+            eulerAngles.y = -1.5;
+        }
+        
+        // Convert to GLM quaternion
+        glm::quat orientation = glm::quat(eulerAngles);
+        
 	// Translate the modelview by the quaternion orientation
 	modelview = eyeModelView * glm::mat4_cast(orientation) * (device->modelview);
 
@@ -168,6 +184,18 @@ void RenderScreens(){
 	glDisableVertexAttribArray(0);
 	glDisableVertexAttribArray(1);
 	glUseProgram(0); 
+        
+        //Draw test graph
+        glBindBuffer(GL_ARRAY_BUFFER, testGraphBuffer);
+	glEnableVertexAttribArray(0);
+	glEnableVertexAttribArray(1);
+	glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 0, 0);
+	glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 0, (void*)64);
+	glDrawArrays(GL_QUADS, 0, 4);
+	glDisableVertexAttribArray(0);
+	glDisableVertexAttribArray(1);
+	glUseProgram(0); 
+        
 
 }
 

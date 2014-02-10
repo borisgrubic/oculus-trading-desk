@@ -40,6 +40,8 @@ GLuint bottomScreenBuffer;
 GLuint leftScreenBuffer;
 GLuint rightScreenBuffer;
 
+GLuint testGraphBuffer;
+
 // Main screen (center)
 const float mainScreen[] = {
 	// position
@@ -57,8 +59,8 @@ const float mainScreen[] = {
 const float topScreen[] = {
 	// position
 	4.0f, 2.0f, -3.0f, 1.0f,
-	4.0f, 6.0f, -2.0f, 1.0f,
-	-4.0f, 6.0f, -2.0f, 1.0f,
+	4.0f, 6.0f, 0.0f, 1.0f,
+	-4.0f, 6.0f, 0.0f, 1.0f,
 	-4.0f, 2.0f, -3.0f, 1.0f,
 	// color
 	0.0f, 0.0f, 1.0f, 1.0f,
@@ -70,8 +72,8 @@ const float topScreen[] = {
 const float bottomScreen[] = {
 	// position
 	-4.0f, -2.0f, -3.0f, 1.0f,
-	-4.0f, -6.0f, -1.0f, 1.0f,
-	4.0f, -6.0f, -1.0f, 1.0f,
+	-4.0f, -6.0f, 0.0f, 1.0f,
+	4.0f, -6.0f, 0.0f, 1.0f,
 	4.0f, -2.0f, -3.0f, 1.0f,
 	// color
 	0.0f, 0.0f, 1.0f, 1.0f,
@@ -82,10 +84,10 @@ const float bottomScreen[] = {
 
 const float leftScreen[] = {
 	// position
-	4.0f, 2.0f, -3.0f, 1.0f,
-	8.0f, 2.0f, -1.0f, 1.0f,
-	8.0f, -2.0f, -1.0f, 1.0f,
-	4.0f, -2.0f, -3.0f, 1.0f,
+	4.0f, 4.0f, -3.0f, 1.0f,
+	6.0f, 4.0f, 5.0f, 1.0f,
+	6.0f, -4.0f, 5.0f, 1.0f,
+	4.0f, -4.0f, -3.0f, 1.0f,
 	// color
 	0.0f, 0.0f, 1.0f, 1.0f,
 	0.0f, 0.0f, 1.0f, 1.0f,
@@ -95,16 +97,44 @@ const float leftScreen[] = {
 
 const float rightScreen[] = {
 	// position
-	-4.0f, 2.0f, -3.0f, 1.0f,
-	-8.0f, 2.0f, -1.0f, 1.0f,
-	-8.0f, -2.0f, -1.0f, 1.0f,
-	-4.0f, -2.0f, -3.0f, 1.0f,
+	-4.0f, 4.0f, -3.0f, 1.0f,
+	-6.0f, 4.0f, 5.0f, 1.0f,
+	-6.0f, -4.0f, 5.0f, 1.0f,
+	-4.0f, -4.0f, -3.0f, 1.0f,
 	// color
 	0.0f, 0.0f, 1.0f, 1.0f,
 	0.0f, 0.0f, 1.0f, 1.0f,
 	0.0f, 0.0f, 1.0f, 1.0f,
 	0.0f, 0.0f, 1.0f, 1.0f,
 };
+
+const float testGraph[] = {
+    
+        // Box 1
+	// position
+	3.0f, 1.0f, -2.9f, 1.0f,
+	3.0f, -1.0f, -2.9f, 1.0f,
+	2.0f, -1.0f, -2.9f, 1.0f,
+	2.0f, 1.0f, -2.9f, 1.0f,
+	// color
+	1.0f, 0.0f, 0.0f, 1.0f,
+	1.0f, 0.0f, 0.0f, 1.0f,
+	1.0f, 0.0f, 0.0f, 1.0f,
+	1.0f, 0.0f, 0.0f, 1.0f,
+	// position
+	2.0f, 0.5f, -2.9f, 1.0f,
+	2.0f, 0.5f, -2.9f, 1.0f,
+	1.0f, -1.0f, -2.9f, 1.0f,
+	1.0f, -1.0f, -2.9f, 1.0f,
+	// color
+	0.0f, 1.0f, 1.0f, 1.0f,
+	0.0f, 1.0f, 1.0f, 1.0f,
+	0.0f, 1.0f, 1.0f, 1.0f,
+	0.0f, 1.0f, 1.0f, 1.0f, 
+    
+    
+};
+
 
 // Fill the buffers with vertex data for each screen
 void InitBuffers(){
@@ -133,7 +163,17 @@ void InitBuffers(){
 	glBindBuffer(GL_ARRAY_BUFFER, rightScreenBuffer);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(rightScreen), rightScreen, GL_STATIC_DRAW);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
+       
 
+}
+
+void InitTestGraphBuffers(){
+    
+    	glGenBuffers(1, &testGraphBuffer);
+	glBindBuffer(GL_ARRAY_BUFFER, testGraphBuffer);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(testGraph), testGraph, GL_STATIC_DRAW);
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+    
 }
 
 
