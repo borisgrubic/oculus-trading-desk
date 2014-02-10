@@ -1,0 +1,27 @@
+[
+{
+  "directory": "/home/oculus/trading-desk-project/code/src/gui",
+  "command": "/usr/bin/g++   -DHAVE_CONFIG_H -D_GNU_SOURCE -Wall -Wextra -Werror -Wno-sign-compare -Wno-unused-result -Wno-unused-parameter -Wno-error=type-limits -Wno-error=unused-but-set-variable -Wno-inline -fno-strict-aliasing -Wno-unused-local-typedefs -Wno-unused-value -std=c++11 -O0 -ggdb  -I/home/oculus/trading-desk-project/code -I/home/oculus/trading-desk-project/code/src -I/home/oculus/trading-desk-project/code/ext/LibOVR/Include -I/usr/include/GL    -o CMakeFiles/gui.dir/DisplayUtil.cpp.o -c /home/oculus/trading-desk-project/code/src/gui/DisplayUtil.cpp",
+  "file": "/home/oculus/trading-desk-project/code/src/gui/DisplayUtil.cpp"
+},
+{
+  "directory": "/home/oculus/trading-desk-project/code/src/gui",
+  "command": "/usr/bin/g++   -DHAVE_CONFIG_H -D_GNU_SOURCE -Wall -Wextra -Werror -Wno-sign-compare -Wno-unused-result -Wno-unused-parameter -Wno-error=type-limits -Wno-error=unused-but-set-variable -Wno-inline -fno-strict-aliasing -Wno-unused-local-typedefs -Wno-unused-value -std=c++11 -O0 -ggdb  -I/home/oculus/trading-desk-project/code -I/home/oculus/trading-desk-project/code/src -I/home/oculus/trading-desk-project/code/ext/LibOVR/Include -I/usr/include/GL    -o CMakeFiles/gui.dir/Display.cpp.o -c /home/oculus/trading-desk-project/code/src/gui/Display.cpp",
+  "file": "/home/oculus/trading-desk-project/code/src/gui/Display.cpp"
+},
+{
+  "directory": "/home/oculus/trading-desk-project/code/src/gui",
+  "command": "/usr/bin/g++   -DHAVE_CONFIG_H -D_GNU_SOURCE -Wall -Wextra -Werror -Wno-sign-compare -Wno-unused-result -Wno-unused-parameter -Wno-error=type-limits -Wno-error=unused-but-set-variable -Wno-inline -fno-strict-aliasing -Wno-unused-local-typedefs -Wno-unused-value -std=c++11 -O0 -ggdb  -I/home/oculus/trading-desk-project/code -I/home/oculus/trading-desk-project/code/src -I/home/oculus/trading-desk-project/code/ext/LibOVR/Include -I/usr/include/GL    -o CMakeFiles/gui.dir/ScreenModel.cpp.o -c /home/oculus/trading-desk-project/code/src/gui/ScreenModel.cpp",
+  "file": "/home/oculus/trading-desk-project/code/src/gui/ScreenModel.cpp"
+},
+{
+  "directory": "/home/oculus/trading-desk-project/code/src/io",
+  "command": "/usr/bin/g++   -DHAVE_CONFIG_H -D_GNU_SOURCE -Wall -Wextra -Werror -Wno-sign-compare -Wno-unused-result -Wno-unused-parameter -Wno-error=type-limits -Wno-error=unused-but-set-variable -Wno-inline -fno-strict-aliasing -Wno-unused-local-typedefs -Wno-unused-value -std=c++11 -O0 -ggdb  -I/home/oculus/trading-desk-project/code -I/home/oculus/trading-desk-project/code/src -I/home/oculus/trading-desk-project/code/ext/LibOVR/Include -I/usr/include/GL    -o CMakeFiles/io.dir/Device.cpp.o -c /home/oculus/trading-desk-project/code/src/io/Device.cpp",
+  "file": "/home/oculus/trading-desk-project/code/src/io/Device.cpp"
+},
+{
+  "directory": "/home/oculus/trading-desk-project/code/bin/vrtradingdesk",
+  "command": "/usr/bin/g++   -DHAVE_CONFIG_H -D_GNU_SOURCE -Wall -Wextra -Werror -Wno-sign-compare -Wno-unused-result -Wno-unused-parameter -Wno-error=type-limits -Wno-error=unused-but-set-variable -Wno-inline -fno-strict-aliasing -Wno-unused-local-typedefs -Wno-unused-value -std=c++11 -O0 -ggdb  -I/home/oculus/trading-desk-project/code -I/home/oculus/trading-desk-project/code/src -I/home/oculus/trading-desk-project/code/ext/LibOVR/Include -I/usr/include/GL    -o CMakeFiles/vrtradingdesk.dir/VRTradingDesk.cpp.o -c /home/oculus/trading-desk-project/code/bin/vrtradingdesk/VRTradingDesk.cpp",
+  "file": "/home/oculus/trading-desk-project/code/bin/vrtradingdesk/VRTradingDesk.cpp"
+}
+]

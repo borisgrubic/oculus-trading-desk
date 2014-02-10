@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="90">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <df root="." name="0">
+      <df name="bin">
+        <df name="CMakeFiles">
+        </df>
+        <df name="vrtradingdesk">
+          <df name="CMakeFiles">
+            <df name="vrtradingdesk.dir">
+            </df>
+          </df>
+          <in>VRTradingDesk.cpp</in>
+        </df>
+      </df>
+      <df name="cmake">
+      </df>
+      <df name="CMakeFiles">
+        <df name="2.8.12.1">
+          <df name="CompilerIdC">
+            <in>CMakeCCompilerId.c</in>
+          </df>
+          <df name="CompilerIdCXX">
+            <in>CMakeCXXCompilerId.cpp</in>
+          </df>
+        </df>
+        <df name="CMakeTmp">
+        </df>
+        <df name="Continuous.dir">
+        </df>
+        <df name="ContinuousBuild.dir">
+        </df>
+        <df name="ContinuousConfigure.dir">
+        </df>
+        <df name="ContinuousCoverage.dir">
+        </df>
+        <df name="ContinuousMemCheck.dir">
+        </df>
+        <df name="ContinuousStart.dir">
+        </df>
+        <df name="ContinuousSubmit.dir">
+        </df>
+        <df name="ContinuousTest.dir">
+        </df>
+        <df name="ContinuousUpdate.dir">
+        </df>
+        <df name="distclean.dir">
+        </df>
+        <df name="Experimental.dir">
+        </df>
+        <df name="ExperimentalBuild.dir">
+        </df>
+        <df name="ExperimentalConfigure.dir">
+        </df>
+        <df name="ExperimentalCoverage.dir">
+        </df>
+        <df name="ExperimentalMemCheck.dir">
+        </df>
+        <df name="ExperimentalStart.dir">
+        </df>
+        <df name="ExperimentalSubmit.dir">
+        </df>
+        <df name="ExperimentalTest.dir">
+        </df>
+        <df name="ExperimentalUpdate.dir">
+        </df>
+        <df name="Nightly.dir">
+        </df>
+        <df name="NightlyBuild.dir">
+        </df>
+        <df name="NightlyConfigure.dir">
+        </df>
+        <df name="NightlyCoverage.dir">
+        </df>
+        <df name="NightlyMemCheck.dir">
+        </df>
+        <df name="NightlyMemoryCheck.dir">
+        </df>
+        <df name="NightlyStart.dir">
+        </df>
+        <df name="NightlySubmit.dir">
+        </df>
+        <df name="NightlyTest.dir">
+        </df>
+        <df name="NightlyUpdate.dir">
+        </df>
+      </df>
+      <df name="ext">
+        <df name="libgmock">
+          <df name="include">
+            <df name="gmock">
+              <df name="internal">
+                <in>gmock-generated-internal-utils.h</in>
+                <in>gmock-internal-utils.h</in>
+                <in>gmock-port.h</in>
+              </df>
+              <in>gmock-actions.h</in>
+              <in>gmock-cardinalities.h</in>
+              <in>gmock-generated-actions.h</in>
+              <in>gmock-generated-function-mockers.h</in>
+              <in>gmock-generated-matchers.h</in>
+              <in>gmock-generated-nice-strict.h</in>
+              <in>gmock-matchers.h</in>
+              <in>gmock-more-actions.h</in>
+              <in>gmock-more-matchers.h</in>
+              <in>gmock-spec-builders.h</in>
+              <in>gmock.h</in>
+            </df>
+          </df>
+          <df name="lib">
+          </df>
+          <df name="scripts">
+            <df name="generator">
+              <df name="cpp">
+              </df>
+            </df>
+          </df>
+        </df>
+        <df name="libgtest">
+          <df name="include">
+            <df name="gtest">
+              <df name="internal">
+                <in>gtest-death-test-internal.h</in>
+                <in>gtest-filepath.h</in>
+                <in>gtest-internal.h</in>
+                <in>gtest-linked_ptr.h</in>
+                <in>gtest-param-util-generated.h</in>
+                <in>gtest-param-util.h</in>
+                <in>gtest-port.h</in>
+                <in>gtest-string.h</in>
+                <in>gtest-tuple.h</in>
+                <in>gtest-type-util.h</in>
+              </df>
+              <in>gtest-death-test.h</in>
+              <in>gtest-message.h</in>
+              <in>gtest-param-test.h</in>
+              <in>gtest-printers.h</in>
+              <in>gtest-spi.h</in>
+              <in>gtest-test-part.h</in>
+              <in>gtest-typed-test.h</in>
+              <in>gtest.h</in>
+              <in>gtest_pred_impl.h</in>
+              <in>gtest_prod.h</in>
+            </df>
+          </df>
+          <df name="lib">
+          </df>
+        </df>
+        <df name="LibOVR">
+          <df name="Include">
+            <in>OVR.h</in>
+            <in>OVRVersion.h</in>
+          </df>
+          <df name="Lib">
+            <df name="Linux">
+              <df name="Debug">
+                <df name="i386">
+                </df>
+                <df name="x86_64">
+                </df>
+              </df>
+              <df name="Release">
+                <df name="i386">
+                </df>
+                <df name="x86_64">
+                </df>
+              </df>
+            </df>
+          </df>
+          <df name="Obj">
+            <df name="Linux">
+              <df name="Debug">
+                <df name="i386">
+                </df>
+                <df name="x86_64">
+                </df>
+              </df>
+              <df name="Release">
+                <df name="i386">
+                </df>
+                <df name="x86_64">
+                </df>
+              </df>
+            </df>
+          </df>
+          <df name="Src">
+            <df name="Kernel">
+              <in>OVR_Alg.cpp</in>
+              <in>OVR_Alg.h</in>
+              <in>OVR_Allocator.cpp</in>
+              <in>OVR_Allocator.h</in>
+              <in>OVR_Array.h</in>
+              <in>OVR_Atomic.cpp</in>
+              <in>OVR_Atomic.h</in>
+              <in>OVR_Color.h</in>
+              <in>OVR_ContainerAllocator.h</in>
+              <in>OVR_File.cpp</in>
+              <in>OVR_File.h</in>
+              <in>OVR_FileFILE.cpp</in>
+              <in>OVR_Hash.h</in>
+              <in>OVR_KeyCodes.h</in>
+              <in>OVR_List.h</in>
+              <in>OVR_Log.cpp</in>
+              <in>OVR_Log.h</in>
+              <in>OVR_Math.cpp</in>
+              <in>OVR_Math.h</in>
+              <in>OVR_RefCount.cpp</in>
+              <in>OVR_RefCount.h</in>
+              <in>OVR_Std.cpp</in>
+              <in>OVR_Std.h</in>
+              <in>OVR_String.cpp</in>
+              <in>OVR_String.h</in>
+              <in>OVR_StringHash.h</in>
+              <in>OVR_String_FormatUtil.cpp</in>
+              <in>OVR_String_PathUtil.cpp</in>
+              <in>OVR_SysFile.cpp</in>
+              <in>OVR_SysFile.h</in>
+              <in>OVR_System.cpp</in>
+              <in>OVR_System.h</in>
+              <in>OVR_Threads.h</in>
+              <in>OVR_ThreadsPthread.cpp</in>
+              <in>OVR_ThreadsWinAPI.cpp</in>
+              <in>OVR_Timer.cpp</in>
+              <in>OVR_Timer.h</in>
+              <in>OVR_Types.h</in>
+              <in>OVR_UTF8Util.cpp</in>
+              <in>OVR_UTF8Util.h</in>
+            </df>
+            <df name="Util">
+              <in>Util_LatencyTest.cpp</in>
+              <in>Util_LatencyTest.h</in>
+              <in>Util_Render_Stereo.cpp</in>
+              <in>Util_Render_Stereo.h</in>
+            </df>
+            <in>OVR_Device.h</in>
+            <in>OVR_DeviceConstants.h</in>
+            <in>OVR_DeviceHandle.cpp</in>
+            <in>OVR_DeviceHandle.h</in>
+            <in>OVR_DeviceImpl.cpp</in>
+            <in>OVR_DeviceImpl.h</in>
+            <in>OVR_DeviceMessages.h</in>
+            <in>OVR_HIDDevice.h</in>
+            <in>OVR_HIDDeviceBase.h</in>
+            <in>OVR_HIDDeviceImpl.h</in>
+            <in>OVR_JSON.cpp</in>
+            <in>OVR_JSON.h</in>
+            <in>OVR_LatencyTestImpl.cpp</in>
+            <in>OVR_LatencyTestImpl.h</in>
+            <in>OVR_Linux_DeviceManager.cpp</in>
+            <in>OVR_Linux_DeviceManager.h</in>
+            <in>OVR_Linux_HIDDevice.cpp</in>
+            <in>OVR_Linux_HIDDevice.h</in>
+            <in>OVR_Linux_HMDDevice.cpp</in>
+            <in>OVR_Linux_HMDDevice.h</in>
+            <in>OVR_Linux_SensorDevice.cpp</in>
+            <in>OVR_OSX_DeviceManager.cpp</in>
+            <in>OVR_OSX_DeviceManager.h</in>
+            <in>OVR_OSX_HIDDevice.cpp</in>
+            <in>OVR_OSX_HIDDevice.h</in>
+            <in>OVR_OSX_HMDDevice.cpp</in>
+            <in>OVR_OSX_HMDDevice.h</in>
+            <in>OVR_OSX_SensorDevice.cpp</in>
+            <in>OVR_Profile.cpp</in>
+            <in>OVR_Profile.h</in>
+            <in>OVR_SensorFilter.cpp</in>
+            <in>OVR_SensorFilter.h</in>
+            <in>OVR_SensorFusion.cpp</in>
+            <in>OVR_SensorFusion.h</in>
+            <in>OVR_SensorImpl.cpp</in>
+            <in>OVR_SensorImpl.h</in>
+            <in>OVR_ThreadCommandQueue.cpp</in>
+            <in>OVR_ThreadCommandQueue.h</in>
+            <in>OVR_Win32_DeviceManager.cpp</in>
+            <in>OVR_Win32_DeviceManager.h</in>
+            <in>OVR_Win32_DeviceStatus.cpp</in>
+            <in>OVR_Win32_DeviceStatus.h</in>
+            <in>OVR_Win32_HIDDevice.cpp</in>
+            <in>OVR_Win32_HIDDevice.h</in>
+            <in>OVR_Win32_HMDDevice.cpp</in>
+            <in>OVR_Win32_HMDDevice.h</in>
+            <in>OVR_Win32_SensorDevice.cpp</in>
+            <in>OVR_Win32_SensorDevice.h</in>
+          </df>
+        </df>
+      </df>
+      <df name="src">
+        <df name="CMakeFiles">
+        </df>
+        <df name="gui">
+          <df name="CMakeFiles">
+            <df name="gui.dir">
+            </df>
+          </df>
+          <in>Display.cpp</in>
+          <in>Display.h</in>
+          <in>DisplayUtil.cpp</in>
+          <in>DisplayUtil.h</in>
+          <in>ScreenModel.cpp</in>
+          <in>ScreenModel.h</in>
+        </df>
+        <df name="io">
+          <df name="CMakeFiles">
+            <df name="io.dir">
+            </df>
+          </df>
+          <in>Device.cpp</in>
+          <in>Device.h</in>
+        </df>
+      </df>
+      <df name="test">
+        <df name="CMakeFiles">
+        </df>
+      </df>
+      <df name="Testing">
+        <df name="Temporary">
+        </df>
+      </df>
+    </df>
+  </logicalFolder>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Default" type="0">
+      <toolsSet>
+        <developmentServer>localhost</developmentServer>
+        <platform>2</platform>
+      </toolsSet>
+      <compile>
+        <compiledirpicklist>
+          <compiledirpicklistitem>.</compiledirpicklistitem>
+          <compiledirpicklistitem>${AUTO_FOLDER}</compiledirpicklistitem>
+        </compiledirpicklist>
+        <compiledir>${AUTO_FOLDER}</compiledir>
+        <compilecommandpicklist>
+          <compilecommandpicklistitem>${MAKE} ${ITEM_NAME}.o</compilecommandpicklistitem>
+          <compilecommandpicklistitem>${AUTO_COMPILE}</compilecommandpicklistitem>
+        </compilecommandpicklist>
+        <compilecommand>${AUTO_COMPILE}</compilecommand>
+      </compile>
+      <dbx_gdbdebugger version="1">
+        <gdb_pathmaps>
+        </gdb_pathmaps>
+        <gdb_interceptlist>
+          <gdbinterceptoptions gdb_all="false" gdb_unhandled="true" gdb_unexpected="true"/>
+        </gdb_interceptlist>
+        <gdb_options>
+          <DebugOptions>
+          </DebugOptions>
+        </gdb_options>
+        <gdb_buildfirst gdb_buildfirst_overriden="false" gdb_buildfirst_old="false"/>
+      </dbx_gdbdebugger>
+      <nativedebugger version="1">
+        <engine>gdb</engine>
+      </nativedebugger>
+      <runprofile version="9">
+        <runcommandpicklist>
+          <runcommandpicklistitem>"${OUTPUT_PATH}"</runcommandpicklistitem>
+        </runcommandpicklist>
+        <runcommand>"${OUTPUT_PATH}"</runcommand>
+        <rundir>.</rundir>
+        <buildfirst>false</buildfirst>
+        <terminal-type>0</terminal-type>
+        <remove-instrumentation>0</remove-instrumentation>
+        <environment>
+        </environment>
+      </runprofile>
+    </conf>
+  </confs>
+</configurationDescriptor>

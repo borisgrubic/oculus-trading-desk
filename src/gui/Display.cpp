@@ -1,6 +1,7 @@
 #include <iostream>
 
 #include <GL/glew.h>
+#include <glfw3.h>
 
 #include <glm/glm.hpp>
 #include <glm/gtc/type_ptr.hpp>
@@ -13,7 +14,7 @@
 #include "DisplayUtil.h"
 #include "io/Device.h"
 
-#include <glfw3.h>
+
 
 GLFWwindow* window;
 
@@ -32,7 +33,7 @@ float aspectRatio;
 float fov;
 
 void Init(bool displayOnScreen){
-
+    
 	// Get the OVR Device
 	device = new Device();
 
@@ -59,6 +60,8 @@ void Init(bool displayOnScreen){
 
 	} else {
 
+                std::cout << "Display on screen is enabled" << std::endl;
+            
 		// Get primary monitor
 		int px, py;
 		GLFWmonitor *primaryMonitor = glfwGetPrimaryMonitor();
@@ -124,7 +127,7 @@ void RenderScreens(){
 	glEnableVertexAttribArray(0);
 	glEnableVertexAttribArray(1);
 	glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 0, 0);
-	glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 0, (void*)60);
+	glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 0, (void*)64);
 	glDrawArrays(GL_QUADS, 0, 4);
 	glDisableVertexAttribArray(0);
 	glDisableVertexAttribArray(1);
@@ -133,7 +136,7 @@ void RenderScreens(){
 	glEnableVertexAttribArray(0);
 	glEnableVertexAttribArray(1);
 	glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 0, 0);
-	glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 0, (void*)60);
+	glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 0, (void*)64);
 	glDrawArrays(GL_QUADS, 0, 4);
 	glDisableVertexAttribArray(0);
 	glDisableVertexAttribArray(1);
@@ -142,7 +145,7 @@ void RenderScreens(){
 	glEnableVertexAttribArray(0);
 	glEnableVertexAttribArray(1);
 	glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 0, 0);
-	glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 0, (void*)60);
+	glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 0, (void*)64);
 	glDrawArrays(GL_QUADS, 0, 4);
 	glDisableVertexAttribArray(0);
 	glDisableVertexAttribArray(1);
@@ -151,7 +154,7 @@ void RenderScreens(){
 	glEnableVertexAttribArray(0);
 	glEnableVertexAttribArray(1);
 	glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 0, 0);
-	glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 0, (void*)60);
+	glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 0, (void*)64);
 	glDrawArrays(GL_QUADS, 0, 4);
 	glDisableVertexAttribArray(0);
 	glDisableVertexAttribArray(1);
@@ -160,7 +163,7 @@ void RenderScreens(){
 	glEnableVertexAttribArray(0);
 	glEnableVertexAttribArray(1);
 	glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 0, 0);
-	glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 0, (void*)60);
+	glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 0, (void*)64);
 	glDrawArrays(GL_QUADS, 0, 4);
 	glDisableVertexAttribArray(0);
 	glDisableVertexAttribArray(1);
@@ -173,7 +176,7 @@ void RunDisplay(){
 
 		// Set the viewport to the oculus rift size and clear buffers
 		glViewport(0, 0, device->Info.HResolution, device->Info.VResolution);
-		glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
+		glClearColor(0.1f, 1.0f, 0.1f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		// We need to render twice, once for each eye

@@ -14,7 +14,7 @@ CostDataFile:
 Site: office756.trading.imc.intra
 
 # Build name is osname-revision-compiler, i.e. Linux-2.4.2-2smp-c++
-BuildName: Linux-c++
+BuildName: Linux-g++
 
 # Submission information
 IsCDash: 
@@ -53,12 +53,12 @@ GITUpdateOptions:
 GITUpdateCustom: 
 
 # Generic update command
-UpdateCommand: 
+UpdateCommand: /usr/bin/git
 UpdateOptions: 
-UpdateType: 
+UpdateType: git
 
 # Compiler info
-Compiler: /usr/bin/c++
+Compiler: /usr/bin/g++
 
 # Dynamic analysis (MemCheck)
 PurifyCommand: 

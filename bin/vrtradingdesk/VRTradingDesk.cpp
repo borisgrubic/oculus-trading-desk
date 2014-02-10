@@ -5,7 +5,7 @@
 
 /* Start the program */
 int main(){
-	Init(true);
+	Init(false);
 	InitBuffers();
 	RunDisplay();
 }
