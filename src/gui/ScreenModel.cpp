@@ -45,10 +45,10 @@ GLuint testGraphBuffer;
 // Main screen (center)
 const float mainScreen[] = {
 	// position
-	4.0f, 2.0f, -3.0f, 1.0f,
-	4.0f, -2.0f, -3.0f, 1.0f,
-	-4.0f, -2.0f, -3.0f, 1.0f,
-	-4.0f, 2.0f, -3.0f, 1.0f,
+	3.5f, 1.5f, -3.0f, 1.0f,
+	3.5f, -1.5f, -3.0f, 1.0f,
+	-3.5f, -1.5f, -3.0f, 1.0f,
+	-3.5f, 1.5f, -3.0f, 1.0f,
 	// color
 	0.0f, 0.0f, 0.0f, 1.0f,
 	0.0f, 0.0f, 0.0f, 1.0f,
@@ -58,10 +58,10 @@ const float mainScreen[] = {
 
 const float topScreen[] = {
 	// position
-	4.0f, 2.0f, -3.0f, 1.0f,
+	4.0f, 1.5f, -3.0f, 1.0f,
 	4.0f, 6.0f, 0.0f, 1.0f,
 	-4.0f, 6.0f, 0.0f, 1.0f,
-	-4.0f, 2.0f, -3.0f, 1.0f,
+	-4.0f, 1.5f, -3.0f, 1.0f,
 	// color
 	0.0f, 0.0f, 1.0f, 1.0f,
 	0.0f, 0.0f, 1.0f, 1.0f,
@@ -71,10 +71,10 @@ const float topScreen[] = {
 
 const float bottomScreen[] = {
 	// position
-	-4.0f, -2.0f, -3.0f, 1.0f,
+	-4.0f, -1.5f, -3.0f, 1.0f,
 	-4.0f, -6.0f, 0.0f, 1.0f,
 	4.0f, -6.0f, 0.0f, 1.0f,
-	4.0f, -2.0f, -3.0f, 1.0f,
+	4.0f, -1.5f, -3.0f, 1.0f,
 	// color
 	0.0f, 0.0f, 1.0f, 1.0f,
 	0.0f, 0.0f, 1.0f, 1.0f,
@@ -84,10 +84,10 @@ const float bottomScreen[] = {
 
 const float leftScreen[] = {
 	// position
-	4.0f, 4.0f, -3.0f, 1.0f,
+	3.5f, 4.0f, -3.0f, 1.0f,
 	6.0f, 4.0f, 5.0f, 1.0f,
 	6.0f, -4.0f, 5.0f, 1.0f,
-	4.0f, -4.0f, -3.0f, 1.0f,
+	3.5f, -4.0f, -3.0f, 1.0f,
 	// color
 	0.0f, 0.0f, 1.0f, 1.0f,
 	0.0f, 0.0f, 1.0f, 1.0f,
@@ -97,10 +97,10 @@ const float leftScreen[] = {
 
 const float rightScreen[] = {
 	// position
-	-4.0f, 4.0f, -3.0f, 1.0f,
+	-3.5f, 4.0f, -3.0f, 1.0f,
 	-6.0f, 4.0f, 5.0f, 1.0f,
 	-6.0f, -4.0f, 5.0f, 1.0f,
-	-4.0f, -4.0f, -3.0f, 1.0f,
+	-3.5f, -4.0f, -3.0f, 1.0f,
 	// color
 	0.0f, 0.0f, 1.0f, 1.0f,
 	0.0f, 0.0f, 1.0f, 1.0f,
@@ -121,16 +121,6 @@ const float testGraph[] = {
 	1.0f, 0.0f, 0.0f, 1.0f,
 	1.0f, 0.0f, 0.0f, 1.0f,
 	1.0f, 0.0f, 0.0f, 1.0f,
-	// position
-	2.0f, 0.5f, -2.9f, 1.0f,
-	2.0f, 0.5f, -2.9f, 1.0f,
-	1.0f, -1.0f, -2.9f, 1.0f,
-	1.0f, -1.0f, -2.9f, 1.0f,
-	// color
-	0.0f, 1.0f, 1.0f, 1.0f,
-	0.0f, 1.0f, 1.0f, 1.0f,
-	0.0f, 1.0f, 1.0f, 1.0f,
-	0.0f, 1.0f, 1.0f, 1.0f, 
     
     
 };
@@ -169,6 +159,8 @@ void InitBuffers(){
 
 void InitTestGraphBuffers(){
     
+    std::cout << "Test graph buffers initalised" << std::endl;
+        
     	glGenBuffers(1, &testGraphBuffer);
 	glBindBuffer(GL_ARRAY_BUFFER, testGraphBuffer);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(testGraph), testGraph, GL_STATIC_DRAW);

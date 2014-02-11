@@ -7,6 +7,7 @@
 void Init(bool displayOnScreen);
 void RunDisplay();
 void ClearWindowDisplay();
+void UpdateView(glm::vec3 eyeModelView, glm::vec3 eyeProjection);
 
 GLFWmonitor* getMonitorAtPosition(glm::ivec2 & position);
 

@@ -100,7 +100,7 @@ void Init(bool displayOnScreen){
         
 }
 
-void UpdateView(glm::mat4 eyeModelView, glm::mat4 eyeProjection){
+void UpdateView(glm::vec3 eyeProjectionOffset, glm::vec3 eyeModelviewOffset){
 
 	// Fetch the pitch, roll and yaw
 	glm::vec3 eulerAngles;
@@ -108,27 +108,31 @@ void UpdateView(glm::mat4 eyeModelView, glm::mat4 eyeProjection){
 
         // Check we are inside limits of scope of view
         // and if not set view to the closest limit
-        if(eulerAngles.x>1.5){
-            eulerAngles.x = 1.5;
-        } else if(eulerAngles.x<-1.5){
-            eulerAngles.x = -1.5;
+        if(eulerAngles.x>1.0){
+            eulerAngles.x = 1.0;
+        } else if(eulerAngles.x<-1.0){
+            eulerAngles.x = -1.0;
         }
-        if(eulerAngles.y>1.5){
-            eulerAngles.y = 1.5;
-        } else if(eulerAngles.y<-1.5){
-            eulerAngles.y = -1.5;
+        if(eulerAngles.y>1.3){
+            eulerAngles.y = 1.3;
+        } else if(eulerAngles.y<-1.3){
+            eulerAngles.y = -1.3;
         }
         
         // Convert to GLM quaternion
         glm::quat orientation = glm::quat(eulerAngles);
         
 	// Translate the modelview by the quaternion orientation
-	modelview = eyeModelView * glm::mat4_cast(orientation) * (device->modelview);
+	modelview =  glm::mat4_cast(orientation) * (device->modelview);
 
+        
+        glm::mat4 eyeProjection = glm::translate(device->projection, eyeProjectionOffset);
+        glm::mat4 eyeModelview = glm::translate(glm::mat4(), eyeModelviewOffset) * modelview;
+        
 	// Give the updated view matrices to the shader
 	glUseProgram(shaderProgram);
 	GLuint modelViewMatUnif = glGetUniformLocation(shaderProgram, "modelViewMat");
-	glUniformMatrix4fv(modelViewMatUnif, 1, GL_FALSE, glm::value_ptr(modelview));
+	glUniformMatrix4fv(modelViewMatUnif, 1, GL_FALSE, glm::value_ptr(eyeModelview));
 	GLuint projectionMatUnif = glGetUniformLocation(shaderProgram, "projectionMat");
 	glUniformMatrix4fv(projectionMatUnif, 1, GL_FALSE, glm::value_ptr(eyeProjection));
 	glUseProgram(0);
@@ -183,7 +187,6 @@ void RenderScreens(){
 	glDrawArrays(GL_QUADS, 0, 4);
 	glDisableVertexAttribArray(0);
 	glDisableVertexAttribArray(1);
-	glUseProgram(0); 
         
         //Draw test graph
         glBindBuffer(GL_ARRAY_BUFFER, testGraphBuffer);
@@ -195,6 +198,7 @@ void RenderScreens(){
 	glDisableVertexAttribArray(0);
 	glDisableVertexAttribArray(1);
 	glUseProgram(0); 
+        
         
 
 }
@@ -210,14 +214,26 @@ void RunDisplay(){
 		// We need to render twice, once for each eye
 		for (int i = 0; i < 2; ++i) {
 			
+                        glm::vec3 eyeProjectionOffset(-(device->stereoConfig.GetProjectionCenterOffset()), 0, 0);
+                        glm::vec3 eyeModelviewOffset = glm::vec3(-(device->stereoConfig.GetIPD()), 0, 0);
+                    
+                        std::cout << "projection for " << i << ": " << eyeProjectionOffset.x << eyeProjectionOffset.y << eyeProjectionOffset.z << std::endl;
+                        
+                        glm::vec3 test = glm::vec3(-0.5f, 0.0f, 0.0f);
+                        Device::Eye eye = device->eyes[i];
+                        
 			// Get the eye
-			Device::Eye eye = device->eyes[i];
+			if (i==0) {
+                                eyeModelviewOffset *= -1;
+                                eyeProjectionOffset *= -1;
+                                test *= -1;
+                        }
 
 			// Size the viewport for the current eye
 			glViewport(eye.viewportLocation.x, 0, device->Info.HResolution / 2, device->Info.VResolution);
-
+                        
 			// Get sensor information and render updated view
-			UpdateView(eye.modelviewOffset, eye.projectionOffset);
+			UpdateView(eyeProjectionOffset, eyeModelviewOffset);
 
 			// Render screen quads
 			RenderScreens();
