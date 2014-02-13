@@ -42,6 +42,8 @@ GLuint rightScreenBuffer;
 
 GLuint testGraphBuffer;
 
+GLuint vis1Buffer;
+
 // Main screen (center)
 const float mainScreen[] = {
 	// position
@@ -63,10 +65,10 @@ const float topScreen[] = {
 	-4.0f, 6.0f, 0.0f, 1.0f,
 	-4.0f, 1.5f, -3.0f, 1.0f,
 	// color
-	0.0f, 0.0f, 1.0f, 1.0f,
-	0.0f, 0.0f, 1.0f, 1.0f,
-	0.0f, 0.0f, 1.0f, 1.0f,
-	0.0f, 0.0f, 1.0f, 1.0f,
+	0.0f, 0.0f, 0.0f, 1.0f,
+	0.0f, 0.0f, 0.0f, 1.0f,
+	0.0f, 0.0f, 0.0f, 1.0f,
+	0.0f, 0.0f, 0.0f, 1.0f,
 };
 
 const float bottomScreen[] = {
@@ -76,10 +78,10 @@ const float bottomScreen[] = {
 	4.0f, -6.0f, 0.0f, 1.0f,
 	4.0f, -1.5f, -3.0f, 1.0f,
 	// color
-	0.0f, 0.0f, 1.0f, 1.0f,
-	0.0f, 0.0f, 1.0f, 1.0f,
-	0.0f, 0.0f, 1.0f, 1.0f,
-	0.0f, 0.0f, 1.0f, 1.0f,
+	0.0f, 0.0f, 0.0f, 1.0f,
+	0.0f, 0.0f, 0.0f, 1.0f,
+	0.0f, 0.0f, 0.0f, 1.0f,
+	0.0f, 0.0f, 0.0f, 1.0f,
 };
 
 const float leftScreen[] = {
@@ -89,10 +91,10 @@ const float leftScreen[] = {
 	6.0f, -4.0f, 5.0f, 1.0f,
 	3.5f, -4.0f, -3.0f, 1.0f,
 	// color
-	0.0f, 0.0f, 1.0f, 1.0f,
-	0.0f, 0.0f, 1.0f, 1.0f,
-	0.0f, 0.0f, 1.0f, 1.0f,
-	0.0f, 0.0f, 1.0f, 1.0f,
+	0.0f, 0.0f, 0.0f, 1.0f,
+	0.0f, 0.0f, 0.0f, 1.0f,
+	0.0f, 0.0f, 0.0f, 1.0f,
+	0.0f, 0.0f, 0.0f, 1.0f,
 };
 
 const float rightScreen[] = {
@@ -102,10 +104,10 @@ const float rightScreen[] = {
 	-6.0f, -4.0f, 5.0f, 1.0f,
 	-3.5f, -4.0f, -3.0f, 1.0f,
 	// color
-	0.0f, 0.0f, 1.0f, 1.0f,
-	0.0f, 0.0f, 1.0f, 1.0f,
-	0.0f, 0.0f, 1.0f, 1.0f,
-	0.0f, 0.0f, 1.0f, 1.0f,
+	0.0f, 0.0f, 0.0f, 1.0f,
+	0.0f, 0.0f, 0.0f, 1.0f,
+	0.0f, 0.0f, 0.0f, 1.0f,
+	0.0f, 0.0f, 0.0f, 1.0f,
 };
 
 const float testGraph[] = {
@@ -122,6 +124,108 @@ const float testGraph[] = {
 	1.0f, 0.0f, 0.0f, 1.0f,
 	1.0f, 0.0f, 0.0f, 1.0f,
     
+    
+};
+
+// First visualisation
+// TODO: Move into its own file
+const float vis1[] = {
+    
+        // Centre divisor
+	// position
+	0.01f, 1.4f, -2.9f, 1.0f,
+	0.01f, -1.4f, -2.9f, 1.0f,
+	-0.01f, -1.4f, -2.9f, 1.0f,
+	-0.01f, 1.4f, -2.9f, 1.0f,
+	// color
+	1.0f, 1.0f, 1.0f, 1.0f,
+	1.0f, 1.0f, 1.0f, 1.0f,
+	1.0f, 1.0f, 1.0f, 1.0f,
+	1.0f, 1.0f, 1.0f, 1.0f,
+    
+        // Box 1
+        // position
+	0.01f, 1.4f, -2.9f, 1.0f,
+	0.01f, 1.2f, -2.9f, 1.0f,
+	1.0f, 1.2f, -2.9f, 1.0f,
+	1.0f, 1.4f, -2.9f, 1.0f,
+	// color
+	0.8f, 0.2f, 0.0f, 1.0f,
+	0.8f, 0.2f, 0.0f, 1.0f,
+	0.8f, 0.0f, 0.0f, 1.0f,
+	0.8f, 0.0f, 0.0f, 1.0f, 
+        
+        // Box 2
+        // position
+	-0.01f, 1.2f, -2.9f, 1.0f,
+	-0.01f, 1.0f, -2.9f, 1.0f,
+	-0.5f, 1.0f, -2.9f, 1.0f,
+	-0.5f, 1.2f, -2.9f, 1.0f,
+	// color
+	0.0f, 0.8f, 0.0f, 1.0f,
+	0.0f, 0.8f, 0.0f, 1.0f,
+	0.0f, 0.8f, 0.0f, 1.0f,
+	0.0f, 0.8f, 0.0f, 1.0f,
+        
+        // Box 3
+        // position
+	-0.01f, 1.0f, -2.9f, 1.0f,
+	-0.01f, 0.8f, -2.9f, 1.0f,
+	-1.0f, 0.8f, -2.9f, 1.0f,
+	-1.0f, 1.0f, -2.9f, 1.0f,
+	// color
+	0.0f, 1.0f, 0.0f, 1.0f,
+	0.0f, 1.0f, 0.0f, 1.0f,
+	0.0f, 1.0f, 0.0f, 1.0f,
+	0.0f, 1.0f, 0.0f, 1.0f,
+        
+        // Box 4
+        // position
+	0.01f, 0.8f, -2.9f, 1.0f,
+	0.01f, 0.6f, -2.9f, 1.0f,
+	0.1f, 0.6f, -2.9f, 1.0f,
+	0.1f, 0.8f, -2.9f, 1.0f,
+	// color
+	0.8f, 0.0f, 0.0f, 1.0f,
+	0.8f, 0.0f, 0.0f, 1.0f,
+	0.8f, 0.0f, 0.0f, 1.0f,
+	0.8f, 0.0f, 0.0f, 1.0f,
+        
+        // Box 5
+        // position
+	-0.01f, 0.6f, -2.9f, 1.0f,
+	-0.01f, 0.4f, -2.9f, 1.0f,
+	-0.3f, 0.4f, -2.9f, 1.0f,
+	-0.3f, 0.6f, -2.9f, 1.0f,
+	// color
+	0.0f, 0.8f, 0.0f, 1.0f,
+	0.0f, 0.8f, 0.0f, 1.0f,
+	0.0f, 0.8f, 0.0f, 1.0f,
+	0.0f, 0.8f, 0.0f, 1.0f,
+        
+        // Box 6
+        // position
+	0.01f, 0.4f, -2.9f, 1.0f,
+	0.01f, 0.2f, -2.9f, 1.0f,
+	0.8f, 0.2f, -2.9f, 1.0f,
+	0.8f, 0.4f, -2.9f, 1.0f,
+	// color
+	0.9f, 0.0f, 0.0f, 1.0f,
+	0.9f, 0.0f, 0.0f, 1.0f,
+	0.9f, 0.0f, 0.0f, 1.0f,
+	0.9f, 0.0f, 0.0f, 1.0f,
+        // Box 7
+        
+        // position
+	0.01f, 0.2f, -2.9f, 1.0f,
+	0.01f, 0.0f, -2.9f, 1.0f,
+	0.6f, 0.0f, -2.9f, 1.0f,
+	0.6f, 0.2f, -2.9f, 1.0f,
+	// color
+	0.8f, 0.0f, 0.0f, 1.0f,
+	0.8f, 0.0f, 0.0f, 1.0f,
+	0.8f, 0.0f, 0.0f, 1.0f,
+	0.8f, 0.0f, 0.0f, 1.0f,
     
 };
 
@@ -166,6 +270,17 @@ void InitTestGraphBuffers(){
 	glBufferData(GL_ARRAY_BUFFER, sizeof(testGraph), testGraph, GL_STATIC_DRAW);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
     
+}
+
+void InitVisualisationBuffers(){
+        
+    // Visualisation 1
+    	glGenBuffers(1, &vis1Buffer);
+	glBindBuffer(GL_ARRAY_BUFFER, vis1Buffer);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(vis1), vis1, GL_STATIC_DRAW);
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+    
+        std::cout << "Visualisations initalised" << std::endl;
 }
 
 

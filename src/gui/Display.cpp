@@ -97,6 +97,7 @@ void Init(bool displayOnScreen){
 
         InitBuffers();
         InitTestGraphBuffers();
+        InitVisualisationBuffers();
         
 }
 
@@ -188,13 +189,20 @@ void RenderScreens(){
 	glDisableVertexAttribArray(0);
 	glDisableVertexAttribArray(1);
         
-        //Draw test graph
-        glBindBuffer(GL_ARRAY_BUFFER, testGraphBuffer);
+        // Draw visualisation
+        glBindBuffer(GL_ARRAY_BUFFER, vis1Buffer);
 	glEnableVertexAttribArray(0);
 	glEnableVertexAttribArray(1);
 	glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 0, 0);
 	glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 0, (void*)64);
 	glDrawArrays(GL_QUADS, 0, 4);
+        glDrawArrays(GL_QUADS, 8, 4);
+        glDrawArrays(GL_QUADS, 16, 4);
+        glDrawArrays(GL_QUADS, 24, 4);
+        glDrawArrays(GL_QUADS, 32, 4);
+        glDrawArrays(GL_QUADS, 40, 4);
+        glDrawArrays(GL_QUADS, 48, 4);
+        glDrawArrays(GL_QUADS, 56, 4);
 	glDisableVertexAttribArray(0);
 	glDisableVertexAttribArray(1);
 	glUseProgram(0); 
