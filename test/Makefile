@@ -44,3 +44,4 @@ clear:
 	rm $(TestObjFiles)
 	rm SimpleFile.txt
 	rm SimpleCSVFile.txt
+	rm TestAll
