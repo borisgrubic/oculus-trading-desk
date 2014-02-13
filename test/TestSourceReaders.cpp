@@ -5,9 +5,12 @@
 #include "../src/SourceReaders/SourceReader.h"
 #include "../src/SourceReaders/FileReader.h"
 #include "../src/SourceReaders/RandomCSVSimpleReader.h"
+#include "../src/SourceReaders/YahooFinanceReader.h"
 #include "../src/Exceptions/FileNotFoundException.h"
 #include "../src/Exceptions/Exception.h"
 #include "../src/DataTypes/CSVDataType.h"
+#include "../src/DataReaders/DataReader.h"
+#include "../src/DataReaders/CSVDataReader.h"
 
 using namespace std;
 
@@ -123,11 +126,46 @@ bool TestSourceReaders::TestRandomCSVSimpleReader() {
 	return ok;
 }
 
+
+bool TestSourceReaders::TestYahooFinanceReader(string ticker) {
+    bool ok = true;
+
+    DataReader* dataReader = new CSVDataReader(new YahooFinanceReader(ticker));
+
+    for (int i = 0; i < 5; ++i) {
+        CSVDataType* csvDataType = (CSVDataType*) dataReader->GetNextData();
+        vector<string> colName = csvDataType->GetColNames();
+
+        if (colName.size() != 7) ok = false;
+        if (ok) {
+            if (colName[0] != "Date") ok = false;
+        }
+
+        delete csvDataType;
+    }
+
+	delete dataReader;
+	return ok;
+}
+
+bool TestSourceReaders::TestYahooFinanceReader() {
+    bool ok = true;
+    printf("Testing YahooFinanceReader... ");
+
+    ok &= TestYahooFinanceReader("MSFT");
+
+    if (ok) printf("OK!\n");
+    else printf("Fail!\n");
+
+    return ok;
+}
+
 bool TestSourceReaders::Test() {
 	bool ok = true;
 
 	ok &= TestFileReader();
 	ok &= TestRandomCSVSimpleReader();
+    ok &= TestYahooFinanceReader();
 
 	return ok;
 }

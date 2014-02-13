@@ -11,6 +11,8 @@ class TestSourceReaders {
 		bool TestFileReader();
 		bool TestRandomCSVSimpleReader(vector<string>, bool);
 		bool TestRandomCSVSimpleReader();
+        bool TestYahooFinanceReader(string);
+        bool TestYahooFinanceReader();
 		bool Test();
 };
 

@@ -1,10 +1,11 @@
 TestObjFiles = TestDataTypes.o TestSourceReaders.o TestDataReaders.o
-ObjFiles = CSVDataReader.o DataReader.o LineDataReader.o CSVDataType.o FileReader.o RandomCSVSimpleReader.o
+ObjFiles = CSVDataReader.o DataReader.o LineDataReader.o CSVDataType.o FileReader.o RandomCSVSimpleReader.o YahooFinanceReader.o 
+ObjUtils = Date.o
 
 Flags=-g
 
-test: $(TestObjFiles) $(ObjFiles)
-	g++ $(Flags) -o TestAll TestAll.cpp $(TestObjFiles) $(ObjFiles)
+test: $(TestObjFiles) $(ObjFiles) $(ObjUtils)
+	g++ $(Flags) -o TestAll TestAll.cpp $(TestObjFiles) $(ObjFiles) $(ObjUtils)
 
 TestDataTypes.o:
 	g++ $(Flags) -c TestDataTypes.cpp
@@ -39,9 +40,16 @@ FileReader.o:
 RandomCSVSimpleReader.o:
 	g++ $(Flags) -c ../src/SourceReaders/RandomCSVSimpleReader.cpp
 
+YahooFinanceReader.o:
+	g++ $(Flags) -c ../src/SourceReaders/YahooFinanceReader.cpp
+
+Date.o:
+	g++ $(Flags) -c ../src/Utils/Date.cpp
+
 clear:
 	rm $(ObjFiles)
 	rm $(TestObjFiles)
+	rm $(ObjUtils)
 	rm SimpleFile.txt
 	rm SimpleCSVFile.txt
 	rm TestAll
