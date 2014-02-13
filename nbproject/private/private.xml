@@ -14,7 +14,7 @@
             <file>file:/home/oculus/trading-desk-project/code/src/gui/ScreenModel.cpp</file>
             <file>file:/home/oculus/trading-desk-project/code/src/io/Device.cpp</file>
             <file>file:/home/oculus/trading-desk-project/code/bin/vrtradingdesk/VRTradingDesk.cpp</file>
-            <file>file:/home/oculus/trading-desk-project/code/src/gui/DisplayUtil.cpp</file>
+            <file>file:/home/oculus/trading-desk-project/code/src/gui/Display.h</file>
         </group>
     </open-files>
 </project-private>

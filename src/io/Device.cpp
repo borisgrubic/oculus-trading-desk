@@ -104,8 +104,10 @@ Device::Device(){
 	origin = glm::vec3(0.0f, 0.0f, 0.0f);
 	up = glm::vec3(0.0f, 1.0f, 0.0f);
 
+        //stereoConfig.GetEyeRenderParams(Util::Render::StereoEye.StereoEye_Left).
+        
 	// Set the projection matrix 
-	this->projection = glm::perspective(60.0f, ratio(), 0.1f, 100.f);
+	this->projection = glm::perspective(60.0f, (float)Info.HResolution / 2.0f / (float)Info.VResolution, 0.1f, 100.f);
 
 	// Set the modelview matrix
 	this->modelview = glm::lookAt(eyeLocation, origin, up);
@@ -119,12 +121,12 @@ Device::Device(){
 	eyes[1].lensOffset = -eyes[0].lensOffset;
 	// Projection offset
 	glm::vec3 projectionOffsetVector = glm::vec3(stereoConfig.GetProjectionCenterOffset() / 2.0f, 0, 0);
-	eyes[0].projectionOffset = glm::translate(projection, projectionOffsetVector);
-	eyes[1].projectionOffset = glm::translate(projection, -projectionOffsetVector);
+	eyes[0].projectionOffset = glm::translate(projection, -projectionOffsetVector);
+	eyes[1].projectionOffset = glm::translate(projection, projectionOffsetVector);
 	// ModelView offset
 	glm::vec3 modelviewOffsetVector = glm::vec3(stereoConfig.GetIPD() / 2.0f, 0, 0);
-	eyes[0].modelviewOffset = glm::translate(glm::mat4(), modelviewOffsetVector);
-	eyes[1].modelviewOffset = glm::translate(glm::mat4(), -modelviewOffsetVector);
+	eyes[0].modelviewOffset = glm::translate(glm::mat4(), -modelviewOffsetVector);
+	eyes[1].modelviewOffset = glm::translate(glm::mat4(), modelviewOffsetVector);
 
 }
 
