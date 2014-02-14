@@ -6,7 +6,8 @@
 #include <glfw3.h>
 #include <glm/glm.hpp>
 
-extern GLuint shaderProgram;
+extern GLuint screenShaderProgram;
+extern GLuint visAShaderProgram;
 
 GLFWmonitor* getMonitorAtPosition(glm::ivec2 & position);
 GLuint CreateShader(GLenum eShaderType, const std::string &strShaderFile);

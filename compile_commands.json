@@ -20,6 +20,16 @@
   "file": "/home/oculus/trading-desk-project/code/src/io/Device.cpp"
 },
 {
+  "directory": "/home/oculus/trading-desk-project/code/src/SourceReaders",
+  "command": "/usr/bin/g++   -DHAVE_CONFIG_H -D_GNU_SOURCE -Wall -Wextra -Werror -Wno-sign-compare -Wno-unused-result -Wno-unused-parameter -Wno-error=type-limits -Wno-error=unused-but-set-variable -Wno-inline -fno-strict-aliasing -Wno-unused-local-typedefs -Wno-unused-value -std=c++11 -O0 -ggdb  -I/home/oculus/trading-desk-project/code -I/home/oculus/trading-desk-project/code/src -I/home/oculus/trading-desk-project/code/ext/LibOVR/Include -I/usr/include/GL    -o CMakeFiles/SourceReaders.dir/RandomCSVSimpleReader.cpp.o -c /home/oculus/trading-desk-project/code/src/SourceReaders/RandomCSVSimpleReader.cpp",
+  "file": "/home/oculus/trading-desk-project/code/src/SourceReaders/RandomCSVSimpleReader.cpp"
+},
+{
+  "directory": "/home/oculus/trading-desk-project/code/src/SourceReaders",
+  "command": "/usr/bin/g++   -DHAVE_CONFIG_H -D_GNU_SOURCE -Wall -Wextra -Werror -Wno-sign-compare -Wno-unused-result -Wno-unused-parameter -Wno-error=type-limits -Wno-error=unused-but-set-variable -Wno-inline -fno-strict-aliasing -Wno-unused-local-typedefs -Wno-unused-value -std=c++11 -O0 -ggdb  -I/home/oculus/trading-desk-project/code -I/home/oculus/trading-desk-project/code/src -I/home/oculus/trading-desk-project/code/ext/LibOVR/Include -I/usr/include/GL    -o CMakeFiles/SourceReaders.dir/FileReader.cpp.o -c /home/oculus/trading-desk-project/code/src/SourceReaders/FileReader.cpp",
+  "file": "/home/oculus/trading-desk-project/code/src/SourceReaders/FileReader.cpp"
+},
+{
   "directory": "/home/oculus/trading-desk-project/code/bin/vrtradingdesk",
   "command": "/usr/bin/g++   -DHAVE_CONFIG_H -D_GNU_SOURCE -Wall -Wextra -Werror -Wno-sign-compare -Wno-unused-result -Wno-unused-parameter -Wno-error=type-limits -Wno-error=unused-but-set-variable -Wno-inline -fno-strict-aliasing -Wno-unused-local-typedefs -Wno-unused-value -std=c++11 -O0 -ggdb  -I/home/oculus/trading-desk-project/code -I/home/oculus/trading-desk-project/code/src -I/home/oculus/trading-desk-project/code/ext/LibOVR/Include -I/usr/include/GL    -o CMakeFiles/vrtradingdesk.dir/VRTradingDesk.cpp.o -c /home/oculus/trading-desk-project/code/bin/vrtradingdesk/VRTradingDesk.cpp",
   "file": "/home/oculus/trading-desk-project/code/bin/vrtradingdesk/VRTradingDesk.cpp"

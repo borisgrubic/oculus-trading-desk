@@ -8,7 +8,8 @@
 
 #include "ScreenModel.h"
 
-GLuint shaderProgram;
+GLuint screenShaderProgram;
+GLuint visAShaderProgram;
 
 // Get the 'monitor' at position specified by HMD Info
 // This should be the OVR
@@ -95,14 +96,23 @@ GLuint CreateProgram(const std::vector<GLuint> &shaderList){
 
 // Initialise the screen display program with shaders
 void InitProgram(){
-
-	std::vector<GLuint> shaderList;
-
-	shaderList.push_back(CreateShader(GL_VERTEX_SHADER, screenVertexShader));
-	shaderList.push_back(CreateShader(GL_FRAGMENT_SHADER, screenFragmentShader));
-
-	shaderProgram = CreateProgram(shaderList);
-
-	std::for_each(shaderList.begin(), shaderList.end(), glDeleteShader);
+    
+        // Screen shader program
+	std::vector<GLuint> screenShaderList;
+	screenShaderList.push_back(CreateShader(GL_VERTEX_SHADER, screenVertexShader));
+	screenShaderList.push_back(CreateShader(GL_FRAGMENT_SHADER, screenFragmentShader));
+	screenShaderProgram = CreateProgram(screenShaderList);
+	std::for_each(screenShaderList.begin(), screenShaderList.end(), glDeleteShader);
+        
+        std::cout << "screen program loaded" << std::endl;
+        
+        // Vis A shader program
+        std::vector<GLuint> visAShaderList;
+	visAShaderList.push_back(CreateShader(GL_VERTEX_SHADER, visAVertexShader));
+	visAShaderList.push_back(CreateShader(GL_FRAGMENT_SHADER, visAFragmentShader));
+	visAShaderProgram = CreateProgram(visAShaderList);
+	std::for_each(visAShaderList.begin(), visAShaderList.end(), glDeleteShader);
+        
+        std::cout << "vis A program loaded" << std::endl;
 
 }
