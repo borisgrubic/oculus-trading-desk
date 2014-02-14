@@ -6,6 +6,8 @@
 
 extern const std::string screenVertexShader;
 extern const std::string screenFragmentShader;
+extern const std::string visAVertexShader;
+extern const std::string visAFragmentShader;
 
 extern GLuint mainScreenBuffer;
 extern GLuint topScreenBuffer;
@@ -14,7 +16,9 @@ extern GLuint leftScreenBuffer;
 extern GLuint rightScreenBuffer;
 extern GLuint testGraphBuffer;
 
-extern GLuint vis1Buffer;
+extern GLuint visA1Buffer;
+extern GLuint visA2Buffer;
+extern GLuint visA3Buffer;
 
 extern const float mainScreen[32];
 extern const float topScreen[32];
@@ -23,7 +27,9 @@ extern const float leftScreen[32];
 extern const float rightScreen[32];
 extern const float testGraph[32];
 
-extern const float vis1[256];
+extern const float visA1[32];
+extern const float visA2[32];
+extern const float visA3[192];
 
 void InitBuffers();
 void InitTestGraphBuffers();

@@ -286,6 +286,12 @@
       <df name="src">
         <df name="CMakeFiles">
         </df>
+        <df name="Exceptions">
+          <df name="CMakeFiles">
+          </df>
+          <in>Exception.h</in>
+          <in>FileNotFoundException.h</in>
+        </df>
         <df name="gui">
           <df name="CMakeFiles">
             <df name="gui.dir">
@@ -305,6 +311,17 @@
           </df>
           <in>Device.cpp</in>
           <in>Device.h</in>
+        </df>
+        <df name="SourceReaders">
+          <df name="CMakeFiles">
+            <df name="SourceReaders.dir">
+            </df>
+          </df>
+          <in>FileReader.cpp</in>
+          <in>FileReader.h</in>
+          <in>RandomCSVSimpleReader.cpp</in>
+          <in>RandomCSVSimpleReader.h</in>
+          <in>SourceReader.h</in>
         </df>
       </df>
       <df name="test">

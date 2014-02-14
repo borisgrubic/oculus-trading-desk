@@ -12,7 +12,12 @@
         <group>
             <file>file:/home/oculus/trading-desk-project/code/src/gui/Display.cpp</file>
             <file>file:/home/oculus/trading-desk-project/code/src/gui/ScreenModel.cpp</file>
+            <file>file:/home/oculus/trading-desk-project/code/src/io/Device.cpp</file>
             <file>file:/home/oculus/trading-desk-project/code/src/gui/ScreenModel.h</file>
+            <file>file:/home/oculus/trading-desk-project/code/src/gui/CMakeLists.txt</file>
+            <file>file:/home/oculus/trading-desk-project/code/src/SourceReaders/RandomCSVSimpleReader.cpp</file>
+            <file>file:/home/oculus/trading-desk-project/code/src/gui/DisplayUtil.h</file>
+            <file>file:/home/oculus/trading-desk-project/code/src/gui/DisplayUtil.cpp</file>
         </group>
     </open-files>
 </project-private>

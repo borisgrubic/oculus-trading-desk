@@ -16,6 +16,10 @@
         <df name="io">
           <in>Device.cpp</in>
         </df>
+        <df name="SourceReaders">
+          <in>FileReader.cpp</in>
+          <in>RandomCSVSimpleReader.cpp</in>
+        </df>
       </df>
     </df>
     <logicalFolder name="ExternalFiles"
@@ -61,6 +65,17 @@
         </makeTool>
       </makefileType>
       <item path="bin/vrtradingdesk/VRTradingDesk.cpp"
+            ex="false"
+            tool="1"
+            flavor2="8">
+        <ccTool>
+        </ccTool>
+      </item>
+      <item path="src/SourceReaders/FileReader.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool>
+        </ccTool>
+      </item>
+      <item path="src/SourceReaders/RandomCSVSimpleReader.cpp"
             ex="false"
             tool="1"
             flavor2="8">
