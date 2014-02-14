@@ -346,7 +346,7 @@ void RenderVisualisationA(){
        float boxoff = 0.0f;
        if(companyScales.at(i%5)<0){
            // green
-           companyColours.at(i%5).x = 0.1f;
+           companyColours.at(i%5).x = 0.0f;
            companyColours.at(i%5).y = 0.8f;
            //companyColours.at(i%5).z = 0.0f;
            //offset to left
@@ -389,7 +389,7 @@ void RenderVisualisationA(){
 
     glUseProgram(0);
     
-    cycle = (cycle +1) % 40;
+    cycle = (cycle +1) % 60;
         
     
 }

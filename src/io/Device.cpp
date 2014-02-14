@@ -100,7 +100,7 @@ Device::Device(){
 	this->stereoConfig.SetHMDInfo(Info);
 
 	// Set the camera position
-	eyeLocation = glm::vec3(0.0f, 0.0f, 0.2f);
+	eyeLocation = glm::vec3(0.0f, 0.0f, 1.5f);
 	origin = glm::vec3(0.0f, 0.0f, 0.0f);
 	up = glm::vec3(0.0f, 1.0f, 0.0f);
 
