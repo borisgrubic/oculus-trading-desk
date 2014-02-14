@@ -13,16 +13,18 @@ YahooFinanceReader::YahooFinanceReader(string ticker) :
         fclose(file);
     } else {
         // our request
-        string request = "wget -O " + filename + " http://ichart.finance.yahoo.com/table.csv?s=" + ticker
+        string request = "wget -O " + filename + " \"http://ichart.finance.yahoo.com/table.csv?s=" + ticker
                 + "&a=" + from.GetMonth()
                 + "&b=" + from.GetDay()
                 + "&c=" + from.GetYear()
                 + "&d=" + to.GetMonth()
                 + "&e=" + to.GetDay()
                 + "&f=" + to.GetYear()
-                + "&g=d";
+                + "&g=d\" --quiet";
 
-        system(request.c_str());
+        if (system(request.c_str())) {
+            throw Exception("Could not download data");
+        }
     } 
 
     string tmpFileName = filename;
