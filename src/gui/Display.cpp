@@ -119,14 +119,14 @@ void Init(bool displayOnScreen){
         companyScales = *(new vector<float>(5));
         companyColours = *(new vector<glm::vec3>(5));
         std::fill(companyOffsets.begin(),companyOffsets.end(),-0.01f);
-        std::fill(companyScales.begin(),companyScales.end(),-0.5f);
+        std::fill(companyScales.begin(),companyScales.end(),0.0f);
         std::fill(companyColours.begin(),companyColours.end(), *(new glm::vec3(1.0f, 0.0f, 0.0f)));
         
         // Set the default offset and scale for visualistion A
         GLuint visBoxOffsetUnif = glGetUniformLocation(visAShaderProgram, "offset");
         glUniform4f(visBoxOffsetUnif, -0.01f, 0.0f, 0.0f, 0.0f);
         GLuint visBoxScaleUnif = glGetUniformLocation(visAShaderProgram, "scale");
-        glUniform4f(visBoxScaleUnif, -0.5f, 1.0f, 1.0f, 1.0f);
+        glUniform4f(visBoxScaleUnif, 1.0f, 1.0f, 1.0f, 1.0f);
         GLuint visBoxColourUnif = glGetUniformLocation(visAShaderProgram, "recolor");
         glUniform4f(visBoxColourUnif, 1.0f, 1.0f, 1.0f, 1.0f); 
         
@@ -242,8 +242,6 @@ void RenderVisualisationA(){
         std::vector<std::string> stockdata;
         boost::split(stockdata, stockchange, boost::is_any_of(","));
 
-        std::cout << stockchange << std::endl;
-
         // Compute price * volume bought or sold
         int totalcost = std::stoi(stockdata.at(2)) * std::stoi(stockdata.at(3));
         if(totalcost>1000) totalcost = 1000;
@@ -260,7 +258,6 @@ void RenderVisualisationA(){
 
         // Calculate offset
         //float boxoff = 0.0f;
-        float boxscale = 1.0f;
         float boxr = 1.0f;
         float boxg = 0.0f;
         float boxb = 0.0f;
@@ -268,19 +265,16 @@ void RenderVisualisationA(){
             //boxoff = 0.01f;
             boxr = 0.8f;
             boxg = 0.0f;
-            boxb = 0.0f;
-            //boxscale = 1.0f * scalex;
+            boxb = 0.2f;
             scalex = scalex * 1.0f;
         } else {
             //boxoff = -0.01f;
             boxr = 0.0f;
             boxg = 0.8f;
-            boxb = 0.0f;    
-           // boxscale = -1.0f * scalex;
+            boxb = 0.4f;    
             scalex = scalex * -1.0f;
         }
         
-        std::cout << "boxscale " << boxscale << std::endl;
         
         // Further evidence of how horrendous this code is
         if(company=="GOOG"){
@@ -342,7 +336,7 @@ void RenderVisualisationA(){
         glDisableVertexAttribArray(1);
     
     // Render each box
-   for(int i=0; i< 5; i++){
+   for(int i=0; i< 14; i++){
        
        // Set offset, scale 
 
@@ -352,16 +346,16 @@ void RenderVisualisationA(){
        float boxoff = 0.0f;
        if(companyScales.at(i%5)<0){
            // green
-           companyColours.at(i%5).x = 0.0f;
+           companyColours.at(i%5).x = 0.1f;
            companyColours.at(i%5).y = 0.8f;
-           companyColours.at(i%5).z = 0.0f;
+           //companyColours.at(i%5).z = 0.0f;
            //offset to left
            boxoff = -0.01f;
        } else {
            // red
            companyColours.at(i%5).x = 0.8f;
            companyColours.at(i%5).y = 0.0f;
-           companyColours.at(i%5).z = 0.0f;
+           //companyColours.at(i%5).z = 0.0f;
            //offset to right
            boxoff = 0.01f;
        }
@@ -372,8 +366,6 @@ void RenderVisualisationA(){
        GLuint visBoxColourUnif = glGetUniformLocation(visAShaderProgram, "recolor");
        glUniform4f(visBoxColourUnif, companyColours.at(i%5).x, companyColours.at(i%5).y, companyColours.at(i%5).z, 1.0f);
         
-       std::cout << "r" << companyColours.at(i%5).x << " g " << companyColours.at(i%5).y << " b " << companyColours.at(i%5).z << std::endl;
-       std::cout << "scale:"  << companyScales.at(i%5) << std::endl;
         // Render quads
         glBindBuffer(GL_ARRAY_BUFFER, visA2Buffer);
         glEnableVertexAttribArray(0);
