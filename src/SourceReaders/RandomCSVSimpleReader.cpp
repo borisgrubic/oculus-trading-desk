@@ -25,7 +25,7 @@ RandomCSVSimpleReader::RandomCSVSimpleReader(vector<string> companies) :
 }
 
 string RandomCSVSimpleReader::ReadNextData() {
-	string type = (rand() % 10 < 5 ? "sell" : "buy");
+	string type = ((rand() % 10 < 5) ? "sell" : "buy");
 	string company = companies[rand() % companies.size()];
 	int cost;
 	if (type == "buy") {
