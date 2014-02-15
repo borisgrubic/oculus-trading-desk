@@ -1,3 +1,4 @@
 ADD_PROJECT_LIBRARY(SourceReaders)
 
-
+TARGET_LINK_LIBRARIES(SourceReaders Exceptions)
+TARGET_LINK_LIBRARIES(SourceReaders Utils)

@@ -1,6 +1,6 @@
 #include "CSVDataType.h"
 
-#include "../Exceptions/Exception.h"
+#include "Exceptions/Exception.h"
 
 CSVDataType::CSVDataType(string dataString, vector<string> colNames) :
 	colNames(colNames)

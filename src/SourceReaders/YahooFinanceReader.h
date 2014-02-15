@@ -12,8 +12,8 @@
 
 #include "SourceReader.h"
 #include "FileReader.h"
-#include "../Utils/Date.h"
-#include "../Exceptions/Exception.h"
+#include "Utils/Date.h"
+#include "Exceptions/Exception.h"
 
 class YahooFinanceReader : public SourceReader {
 	private:

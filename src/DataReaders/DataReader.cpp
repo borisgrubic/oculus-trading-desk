@@ -1,8 +1,8 @@
 #include "DataReader.h"
 
 DataReader::DataReader(SourceReader *sourceReader) :
-	sourceReader(sourceReader),
-	buffer("")
+	buffer(""),
+	sourceReader(sourceReader)
 {
 }
 

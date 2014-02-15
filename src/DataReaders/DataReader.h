@@ -3,8 +3,8 @@
 
 #include <iostream>
 
-#include "../SourceReaders/SourceReader.h"
-#include "../DataTypes/DataType.h"
+#include "SourceReaders/SourceReader.h"
+#include "DataTypes/DataType.h"
 
 using namespace std;
 

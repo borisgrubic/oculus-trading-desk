@@ -1,5 +1,5 @@
 #include "FileReader.h"
-#include "../Exceptions/FileNotFoundException.h"
+#include "Exceptions/FileNotFoundException.h"
 
 FileReader::FileReader(string filename) :
 	filename(filename)

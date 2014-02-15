@@ -3,11 +3,11 @@
 #include <vector>
 
 #include "TestDataReaders.h"
-#include "../src/DataTypes/CSVDataType.h"
-#include "../src/DataReaders/DataReader.h"
-#include "../src/DataReaders/CSVDataReader.h"
-#include "../src/DataReaders/LineDataReader.h"
-#include "../src/SourceReaders/FileReader.h"
+#include "DataTypes/CSVDataType.h"
+#include "DataReaders/DataReader.h"
+#include "DataReaders/CSVDataReader.h"
+#include "DataReaders/LineDataReader.h"
+#include "SourceReaders/FileReader.h"
 
 using namespace std;
 

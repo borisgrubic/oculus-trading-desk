@@ -1,9 +1,9 @@
 #ifndef TEST_DATA_READERS_H
 #define TEST_DATA_READERS_H
 
-#include "../src/SourceReaders/SourceReader.h"
-#include "../src/DataTypes/CSVDataType.h"
-#include "../src/DataTypes/StringDataType.h"
+#include "SourceReaders/SourceReader.h"
+#include "DataTypes/CSVDataType.h"
+#include "DataTypes/StringDataType.h"
 
 class TestDataReaders {
 	public:

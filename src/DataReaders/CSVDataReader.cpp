@@ -1,5 +1,5 @@
 #include "CSVDataReader.h"
-#include "../DataTypes/CSVDataType.h"
+#include "DataTypes/CSVDataType.h"
 
 CSVDataReader::CSVDataReader(SourceReader *sourceReader) :
 	DataReader(sourceReader)

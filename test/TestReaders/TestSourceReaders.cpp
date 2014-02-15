@@ -2,15 +2,15 @@
 #include <vector>
 
 #include "TestSourceReaders.h"
-#include "../src/SourceReaders/SourceReader.h"
-#include "../src/SourceReaders/FileReader.h"
-#include "../src/SourceReaders/RandomCSVSimpleReader.h"
-#include "../src/SourceReaders/YahooFinanceReader.h"
-#include "../src/Exceptions/FileNotFoundException.h"
-#include "../src/Exceptions/Exception.h"
-#include "../src/DataTypes/CSVDataType.h"
-#include "../src/DataReaders/DataReader.h"
-#include "../src/DataReaders/CSVDataReader.h"
+#include "SourceReaders/SourceReader.h"
+#include "SourceReaders/FileReader.h"
+#include "SourceReaders/RandomCSVSimpleReader.h"
+#include "SourceReaders/YahooFinanceReader.h"
+#include "Exceptions/FileNotFoundException.h"
+#include "Exceptions/Exception.h"
+#include "DataTypes/CSVDataType.h"
+#include "DataReaders/DataReader.h"
+#include "DataReaders/CSVDataReader.h"
 
 using namespace std;
 

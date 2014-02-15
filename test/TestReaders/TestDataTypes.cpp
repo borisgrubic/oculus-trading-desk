@@ -4,9 +4,9 @@
 
 #include "TestDataTypes.h"
 
-#include "../src/DataTypes/StringDataType.h"
-#include "../src/DataTypes/CSVDataType.h"
-#include "../src/Exceptions/Exception.h"
+#include "DataTypes/StringDataType.h"
+#include "DataTypes/CSVDataType.h"
+#include "Exceptions/Exception.h"
 
 using namespace std;
 

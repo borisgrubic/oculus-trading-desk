@@ -1,6 +1,6 @@
 #include "RandomCSVSimpleReader.h"
 
-#include "../Exceptions/Exception.h"
+#include "Exceptions/Exception.h"
 
 #include <cstdlib>
 

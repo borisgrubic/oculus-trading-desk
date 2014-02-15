@@ -1,0 +1,3 @@
+ADD_PROJECT_LIBRARY(DataTypes)
+
+TARGET_LINK_LIBRARIES(DataTypes Exceptions)
