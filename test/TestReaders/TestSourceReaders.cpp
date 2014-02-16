@@ -78,19 +78,30 @@ bool TestSourceReaders::TestRandomCSVSimpleReader(vector<string> companies, bool
 		sourceReader = new RandomCSVSimpleReader(companies);
 	}
 
-	for (int i = 0; ok && i < 5; ++i) {
+	for (int i = 0; ok && i < 7; ++i) {
 		string str = sourceReader->ReadNextData();
 		vector<string> res = CSVDataType::ExtractValues(str);
 
 		if (res.size() != 4) {
 			ok = false;
 		} else {
-			if (res[0] != "sell" && res[0] != "buy") ok = false;
-			if (!empty) {
-				ok &= Contains(companies, res[1]);
+			if (res[3][res[3].size() - 1] != '\n') ok = false;
+			else {
+				res[3] = res[3].substr(0, res[3].size() - 1);
 			}
-			if (!IsNumber(res[2])) ok = false;
-			if (!IsNumber(res[3])) ok = false;
+
+			if (i == 0) {
+				if (res[0] != "type" || res[1] != "company" ||
+					res[2] != "cost" || res[3] != "volume")
+					ok = false;
+			} else {
+				if (res[0] != "sell" && res[0] != "buy") ok = false;
+				if (!empty) {
+					ok &= Contains(companies, res[1]);
+				}
+				if (!IsNumber(res[2])) ok = false;
+				if (!IsNumber(res[3])) ok = false;
+			}
 		}
 	}
 

@@ -7,6 +7,7 @@
 #include "DataReaders/DataReader.h"
 #include "DataReaders/CSVDataReader.h"
 #include "DataReaders/LineDataReader.h"
+#include "SourceReaders/RandomCSVSimpleReader.h"
 #include "SourceReaders/FileReader.h"
 
 using namespace std;
@@ -32,8 +33,34 @@ bool TestDataReaders::TestCSVDataReader(SourceReader* sourceReader, vector<CSVDa
 					}
 				}
 			}
+		}
 
+		if (csvDataType != NULL)
 			delete csvDataType;
+	}
+
+	delete dataReader;
+	return ok;
+}
+
+bool TestCSVDataReaderWithRandomCSVSimpleReader(SourceReader* sourceReader) {
+	bool ok = true;
+	DataReader* dataReader = new CSVDataReader(sourceReader);
+
+	for (int i = 0; i < 10; ++i) {
+		CSVDataType* csvDataType = (CSVDataType*) dataReader->GetNextData();
+
+		vector<string> colNames = csvDataType->GetColNames();
+		if (colNames.size() != 4) ok = false;
+		else {
+			if (colNames[0] != "type") ok = false;
+			if (colNames[1] != "company") ok = false;
+			if (colNames[2] != "cost") ok = false;
+			if (colNames[3] != "volume") ok = false;
+
+			if (csvDataType->GetValue("type") != "sell" &&
+				csvDataType->GetValue("type") != "buy")
+				ok = false;
 		}
 	}
 
@@ -58,6 +85,8 @@ bool TestDataReaders::TestCSVDataReader() {
 
 	for (int i = 0; i < res.size() - 1; ++i)
 		delete res[i];
+
+	ok &= TestCSVDataReaderWithRandomCSVSimpleReader(new RandomCSVSimpleReader());
 	
 	if (ok) printf("OK!\n");
 	else printf("Fail!\n");

@@ -22,6 +22,7 @@ class RandomCSVSimpleReader : public SourceReader {
 		const static string randomCompanies[];
 		const static int maxRndCompanies; // maximum number of random companies
 
+		bool first = true;
 		vector<string> companies;
 
 	public:

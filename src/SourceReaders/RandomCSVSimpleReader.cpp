@@ -7,7 +7,9 @@
 const string RandomCSVSimpleReader::randomCompanies[] = {"GOOG", "FB", "AAPL", "MSFT", "AMZN"};
 const int RandomCSVSimpleReader::maxRndCompanies = 5;
 
-RandomCSVSimpleReader::RandomCSVSimpleReader() {
+RandomCSVSimpleReader::RandomCSVSimpleReader() :
+	first(true)
+{
 	srand(time(NULL));
 	int compNum = rand() % maxRndCompanies + 1;
 
@@ -17,6 +19,7 @@ RandomCSVSimpleReader::RandomCSVSimpleReader() {
 }
 
 RandomCSVSimpleReader::RandomCSVSimpleReader(vector<string> companies) :
+	first(true),
 	companies(companies)
 {
 	if (companies.empty()) {
@@ -25,16 +28,21 @@ RandomCSVSimpleReader::RandomCSVSimpleReader(vector<string> companies) :
 }
 
 string RandomCSVSimpleReader::ReadNextData() {
-	string type = ((rand() % 10 < 5) ? "sell" : "buy");
-	string company = companies[rand() % companies.size()];
-	int cost;
-	if (type == "buy") {
-		cost = 91 + (rand() % 15);
+	if (first) {
+		first = false;
+		return "type,company,cost,volume\n";
 	} else {
-		cost = 119 - (rand() % 15);
+		string type = ((rand() % 10 < 5) ? "sell" : "buy");
+		string company = companies[rand() % companies.size()];
+		int cost;
+		if (type == "buy") {
+			cost = 91 + (rand() % 15);
+		} else {
+			cost = 119 - (rand() % 15);
+		}
+		int volume = rand() % 10 + 1;
+		return type + "," + company + "," + IntToString(cost) + "," + IntToString(volume) + "\n";
 	}
-	int volume = rand() % 10 + 1;
-	return type + "," + company + "," + IntToString(cost) + "," + IntToString(volume);
 }
 
 string RandomCSVSimpleReader::IntToString(int x) {
