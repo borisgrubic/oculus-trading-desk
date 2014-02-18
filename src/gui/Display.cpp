@@ -16,6 +16,8 @@
 #include "DisplayUtil.h"
 #include "io/Device.h"
 
+#include "DataReaders/CSVDataReader.h"
+#include "DataTypes/CSVDataType.h"
 #include "SourceReaders/RandomCSVSimpleReader.h"
 
 
@@ -30,7 +32,7 @@ glm::mat4 projection;
 glm::mat4 modelview;
 glm::mat4 modelviewProjection;
 
-RandomCSVSimpleReader* reader;
+CSVDataReader* reader;
 
 vector<float> companyOffsets;
 vector<float> companyScales;
@@ -112,7 +114,7 @@ void Init(bool displayOnScreen){
         InitVisualisationBuffers();
         
         // Create a simple random reader
-        reader = new RandomCSVSimpleReader();
+        reader = new CSVDataReader(new RandomCSVSimpleReader());
         
         // Initialise company values
         companyOffsets = *(new vector<float>(5));
@@ -238,12 +240,10 @@ void RenderVisualisationA(){
     
     if(cycle==0){
         // Get the next data change from the reader
-        string stockchange = reader->ReadNextData();
-        std::vector<std::string> stockdata;
-        boost::split(stockdata, stockchange, boost::is_any_of(","));
+        CSVDataType* stockdata = (CSVDataType*) reader->GetNextData();
 
         // Compute price * volume bought or sold
-        int totalcost = std::stoi(stockdata.at(2)) * std::stoi(stockdata.at(3));
+        int totalcost = std::stoi(stockdata->GetValue("cost")) * std::stoi(stockdata->GetValue("volume"));
         if(totalcost>1000) totalcost = 1000;
         
         float scalex = ((float)totalcost/1000);
@@ -253,8 +253,8 @@ void RenderVisualisationA(){
         // Render the boxes with appropriate offset and scale
         //Divisor
 
-        std::string type = stockdata.at(0);
-        std::string company = stockdata.at(1);
+        std::string type = stockdata->GetValue("type");
+        std::string company = stockdata->GetValue("company");
 
         // Calculate offset
         //float boxoff = 0.0f;

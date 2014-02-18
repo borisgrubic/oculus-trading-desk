@@ -11,16 +11,11 @@ class Exception : public exception {
 		string message;
 
 	public:
-		Exception(string message) :
-			message(message)
-		{
-		}
+		Exception(string message);
 
 		~Exception() throw() {}
 
-		const char* what() const throw() {
-			return message.c_str();
-		}
+		const char* what() const throw();
 };
 
 #endif
