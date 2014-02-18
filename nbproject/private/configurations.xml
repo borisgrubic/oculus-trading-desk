@@ -286,9 +286,39 @@
       <df name="src">
         <df name="CMakeFiles">
         </df>
+        <df name="DataPrograms">
+          <in>BuySellBarVisualisation.cpp</in>
+          <in>BuySellBarVisualisation.h</in>
+          <in>Visualisation.h</in>
+        </df>
+        <df name="DataReaders">
+          <df name="CMakeFiles">
+            <df name="DataReaders.dir">
+            </df>
+          </df>
+          <in>CSVDataReader.cpp</in>
+          <in>CSVDataReader.h</in>
+          <in>DataReader.cpp</in>
+          <in>DataReader.h</in>
+          <in>LineDataReader.cpp</in>
+          <in>LineDataReader.h</in>
+        </df>
+        <df name="DataTypes">
+          <df name="CMakeFiles">
+            <df name="DataTypes.dir">
+            </df>
+          </df>
+          <in>CSVDataType.cpp</in>
+          <in>CSVDataType.h</in>
+          <in>DataType.h</in>
+          <in>StringDataType.h</in>
+        </df>
         <df name="Exceptions">
           <df name="CMakeFiles">
+            <df name="Exceptions.dir">
+            </df>
           </df>
+          <in>Exception.cpp</in>
           <in>Exception.h</in>
           <in>FileNotFoundException.h</in>
         </df>
@@ -322,10 +352,38 @@
           <in>RandomCSVSimpleReader.cpp</in>
           <in>RandomCSVSimpleReader.h</in>
           <in>SourceReader.h</in>
+          <in>YahooFinanceReader.cpp</in>
+          <in>YahooFinanceReader.h</in>
+        </df>
+        <df name="StockSim">
+          <in>MarketSim.cpp</in>
+          <in>Stock.cpp</in>
+          <in>main.cpp</in>
+        </df>
+        <df name="Utils">
+          <df name="CMakeFiles">
+            <df name="Utils.dir">
+            </df>
+          </df>
+          <in>Date.cpp</in>
+          <in>Date.h</in>
         </df>
       </df>
       <df name="test">
         <df name="CMakeFiles">
+        </df>
+        <df name="TestReaders">
+          <df name="CMakeFiles">
+            <df name="TestReaders.dir">
+            </df>
+          </df>
+          <in>TestDataReaders.cpp</in>
+          <in>TestDataReaders.h</in>
+          <in>TestDataTypes.cpp</in>
+          <in>TestDataTypes.h</in>
+          <in>TestReaders.cpp</in>
+          <in>TestSourceReaders.cpp</in>
+          <in>TestSourceReaders.h</in>
         </df>
       </df>
       <df name="Testing">

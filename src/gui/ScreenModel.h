@@ -18,7 +18,6 @@ extern GLuint testGraphBuffer;
 
 extern GLuint visA1Buffer;
 extern GLuint visA2Buffer;
-extern GLuint visA3Buffer;
 
 extern const float mainScreen[32];
 extern const float topScreen[32];
@@ -29,7 +28,6 @@ extern const float testGraph[32];
 
 extern const float visA1[32];
 extern const float visA2[32];
-extern const float visA3[192];
 
 void InitBuffers();
 void InitTestGraphBuffers();

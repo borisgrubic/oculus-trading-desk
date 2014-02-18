@@ -184,81 +184,6 @@ const float visA2[] = {
 	0.8f, 0.0f, 0.0f, 1.0f,
 	0.8f, 0.0f, 0.0f, 1.0f, 
 };
-const float visA3[] = {
-        // Box 2
-        // position
-	-0.01f, 1.2f, -2.9f, 1.0f,
-	-0.01f, 1.0f, -2.9f, 1.0f,
-	-0.5f, 1.0f, -2.9f, 1.0f,
-	-0.5f, 1.2f, -2.9f, 1.0f,
-	// color
-	0.0f, 0.8f, 0.0f, 1.0f,
-	0.0f, 0.8f, 0.0f, 1.0f,
-	0.0f, 0.8f, 0.0f, 1.0f,
-	0.0f, 0.8f, 0.0f, 1.0f,
-        
-        // Box 3
-        // position
-	-0.01f, 1.0f, -2.9f, 1.0f,
-	-0.01f, 0.8f, -2.9f, 1.0f,
-	-1.0f, 0.8f, -2.9f, 1.0f,
-	-1.0f, 1.0f, -2.9f, 1.0f,
-	// color
-	0.0f, 1.0f, 0.0f, 1.0f,
-	0.0f, 1.0f, 0.0f, 1.0f,
-	0.0f, 1.0f, 0.0f, 1.0f,
-	0.0f, 1.0f, 0.0f, 1.0f,
-        
-        // Box 4
-        // position
-	0.01f, 0.8f, -2.9f, 1.0f,
-	0.01f, 0.6f, -2.9f, 1.0f,
-	0.1f, 0.6f, -2.9f, 1.0f,
-	0.1f, 0.8f, -2.9f, 1.0f,
-	// color
-	0.8f, 0.0f, 0.0f, 1.0f,
-	0.8f, 0.0f, 0.0f, 1.0f,
-	0.8f, 0.0f, 0.0f, 1.0f,
-	0.8f, 0.0f, 0.0f, 1.0f,
-        
-        // Box 5
-        // position
-	-0.01f, 0.6f, -2.9f, 1.0f,
-	-0.01f, 0.4f, -2.9f, 1.0f,
-	-0.3f, 0.4f, -2.9f, 1.0f,
-	-0.3f, 0.6f, -2.9f, 1.0f,
-	// color
-	0.0f, 0.8f, 0.0f, 1.0f,
-	0.0f, 0.8f, 0.0f, 1.0f,
-	0.0f, 0.8f, 0.0f, 1.0f,
-	0.0f, 0.8f, 0.0f, 1.0f,
-        
-        // Box 6
-        // position
-	0.01f, 0.4f, -2.9f, 1.0f,
-	0.01f, 0.2f, -2.9f, 1.0f,
-	0.8f, 0.2f, -2.9f, 1.0f,
-	0.8f, 0.4f, -2.9f, 1.0f,
-	// color
-	0.9f, 0.0f, 0.0f, 1.0f,
-	0.9f, 0.0f, 0.0f, 1.0f,
-	0.9f, 0.0f, 0.0f, 1.0f,
-	0.9f, 0.0f, 0.0f, 1.0f,
-        // Box 7
-        
-        // position
-	0.01f, 0.2f, -2.9f, 1.0f,
-	0.01f, 0.0f, -2.9f, 1.0f,
-	0.6f, 0.0f, -2.9f, 1.0f,
-	0.6f, 0.2f, -2.9f, 1.0f,
-	// color
-	0.8f, 0.0f, 0.0f, 1.0f,
-	0.8f, 0.0f, 0.0f, 1.0f,
-	0.8f, 0.0f, 0.0f, 1.0f,
-	0.8f, 0.0f, 0.0f, 1.0f,
-    
-};
-
 
 // Fill the buffers with vertex data for each screen
 void InitBuffers(){
@@ -313,11 +238,6 @@ void InitVisualisationBuffers(){
         glGenBuffers(1, &visA2Buffer);
 	glBindBuffer(GL_ARRAY_BUFFER, visA2Buffer);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(visA2), visA2, GL_STATIC_DRAW);
-	glBindBuffer(GL_ARRAY_BUFFER, 0);
-        
-        glGenBuffers(1, &visA3Buffer);
-	glBindBuffer(GL_ARRAY_BUFFER, visA3Buffer);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(visA3), visA3, GL_STATIC_DRAW);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
     
         std::cout << "Visualisation A initalised" << std::endl;

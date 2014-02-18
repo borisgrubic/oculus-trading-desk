@@ -20,6 +20,36 @@
   "file": "/home/oculus/trading-desk-project/code/src/io/Device.cpp"
 },
 {
+  "directory": "/home/oculus/trading-desk-project/code/src/DataReaders",
+  "command": "/usr/bin/g++   -DHAVE_CONFIG_H -D_GNU_SOURCE -Wall -Wextra -Werror -Wno-sign-compare -Wno-unused-result -Wno-unused-parameter -Wno-error=type-limits -Wno-error=unused-but-set-variable -Wno-inline -fno-strict-aliasing -Wno-unused-local-typedefs -Wno-unused-value -std=c++11 -O0 -ggdb  -I/home/oculus/trading-desk-project/code -I/home/oculus/trading-desk-project/code/src -I/home/oculus/trading-desk-project/code/ext/LibOVR/Include -I/usr/include/GL    -o CMakeFiles/DataReaders.dir/CSVDataReader.cpp.o -c /home/oculus/trading-desk-project/code/src/DataReaders/CSVDataReader.cpp",
+  "file": "/home/oculus/trading-desk-project/code/src/DataReaders/CSVDataReader.cpp"
+},
+{
+  "directory": "/home/oculus/trading-desk-project/code/src/DataReaders",
+  "command": "/usr/bin/g++   -DHAVE_CONFIG_H -D_GNU_SOURCE -Wall -Wextra -Werror -Wno-sign-compare -Wno-unused-result -Wno-unused-parameter -Wno-error=type-limits -Wno-error=unused-but-set-variable -Wno-inline -fno-strict-aliasing -Wno-unused-local-typedefs -Wno-unused-value -std=c++11 -O0 -ggdb  -I/home/oculus/trading-desk-project/code -I/home/oculus/trading-desk-project/code/src -I/home/oculus/trading-desk-project/code/ext/LibOVR/Include -I/usr/include/GL    -o CMakeFiles/DataReaders.dir/LineDataReader.cpp.o -c /home/oculus/trading-desk-project/code/src/DataReaders/LineDataReader.cpp",
+  "file": "/home/oculus/trading-desk-project/code/src/DataReaders/LineDataReader.cpp"
+},
+{
+  "directory": "/home/oculus/trading-desk-project/code/src/DataReaders",
+  "command": "/usr/bin/g++   -DHAVE_CONFIG_H -D_GNU_SOURCE -Wall -Wextra -Werror -Wno-sign-compare -Wno-unused-result -Wno-unused-parameter -Wno-error=type-limits -Wno-error=unused-but-set-variable -Wno-inline -fno-strict-aliasing -Wno-unused-local-typedefs -Wno-unused-value -std=c++11 -O0 -ggdb  -I/home/oculus/trading-desk-project/code -I/home/oculus/trading-desk-project/code/src -I/home/oculus/trading-desk-project/code/ext/LibOVR/Include -I/usr/include/GL    -o CMakeFiles/DataReaders.dir/DataReader.cpp.o -c /home/oculus/trading-desk-project/code/src/DataReaders/DataReader.cpp",
+  "file": "/home/oculus/trading-desk-project/code/src/DataReaders/DataReader.cpp"
+},
+{
+  "directory": "/home/oculus/trading-desk-project/code/src/DataTypes",
+  "command": "/usr/bin/g++   -DHAVE_CONFIG_H -D_GNU_SOURCE -Wall -Wextra -Werror -Wno-sign-compare -Wno-unused-result -Wno-unused-parameter -Wno-error=type-limits -Wno-error=unused-but-set-variable -Wno-inline -fno-strict-aliasing -Wno-unused-local-typedefs -Wno-unused-value -std=c++11 -O0 -ggdb  -I/home/oculus/trading-desk-project/code -I/home/oculus/trading-desk-project/code/src -I/home/oculus/trading-desk-project/code/ext/LibOVR/Include -I/usr/include/GL    -o CMakeFiles/DataTypes.dir/CSVDataType.cpp.o -c /home/oculus/trading-desk-project/code/src/DataTypes/CSVDataType.cpp",
+  "file": "/home/oculus/trading-desk-project/code/src/DataTypes/CSVDataType.cpp"
+},
+{
+  "directory": "/home/oculus/trading-desk-project/code/src/Exceptions",
+  "command": "/usr/bin/g++   -DHAVE_CONFIG_H -D_GNU_SOURCE -Wall -Wextra -Werror -Wno-sign-compare -Wno-unused-result -Wno-unused-parameter -Wno-error=type-limits -Wno-error=unused-but-set-variable -Wno-inline -fno-strict-aliasing -Wno-unused-local-typedefs -Wno-unused-value -std=c++11 -O0 -ggdb  -I/home/oculus/trading-desk-project/code -I/home/oculus/trading-desk-project/code/src -I/home/oculus/trading-desk-project/code/ext/LibOVR/Include -I/usr/include/GL    -o CMakeFiles/Exceptions.dir/Exception.cpp.o -c /home/oculus/trading-desk-project/code/src/Exceptions/Exception.cpp",
+  "file": "/home/oculus/trading-desk-project/code/src/Exceptions/Exception.cpp"
+},
+{
+  "directory": "/home/oculus/trading-desk-project/code/src/SourceReaders",
+  "command": "/usr/bin/g++   -DHAVE_CONFIG_H -D_GNU_SOURCE -Wall -Wextra -Werror -Wno-sign-compare -Wno-unused-result -Wno-unused-parameter -Wno-error=type-limits -Wno-error=unused-but-set-variable -Wno-inline -fno-strict-aliasing -Wno-unused-local-typedefs -Wno-unused-value -std=c++11 -O0 -ggdb  -I/home/oculus/trading-desk-project/code -I/home/oculus/trading-desk-project/code/src -I/home/oculus/trading-desk-project/code/ext/LibOVR/Include -I/usr/include/GL    -o CMakeFiles/SourceReaders.dir/YahooFinanceReader.cpp.o -c /home/oculus/trading-desk-project/code/src/SourceReaders/YahooFinanceReader.cpp",
+  "file": "/home/oculus/trading-desk-project/code/src/SourceReaders/YahooFinanceReader.cpp"
+},
+{
   "directory": "/home/oculus/trading-desk-project/code/src/SourceReaders",
   "command": "/usr/bin/g++   -DHAVE_CONFIG_H -D_GNU_SOURCE -Wall -Wextra -Werror -Wno-sign-compare -Wno-unused-result -Wno-unused-parameter -Wno-error=type-limits -Wno-error=unused-but-set-variable -Wno-inline -fno-strict-aliasing -Wno-unused-local-typedefs -Wno-unused-value -std=c++11 -O0 -ggdb  -I/home/oculus/trading-desk-project/code -I/home/oculus/trading-desk-project/code/src -I/home/oculus/trading-desk-project/code/ext/LibOVR/Include -I/usr/include/GL    -o CMakeFiles/SourceReaders.dir/RandomCSVSimpleReader.cpp.o -c /home/oculus/trading-desk-project/code/src/SourceReaders/RandomCSVSimpleReader.cpp",
   "file": "/home/oculus/trading-desk-project/code/src/SourceReaders/RandomCSVSimpleReader.cpp"
@@ -30,8 +60,33 @@
   "file": "/home/oculus/trading-desk-project/code/src/SourceReaders/FileReader.cpp"
 },
 {
+  "directory": "/home/oculus/trading-desk-project/code/src/Utils",
+  "command": "/usr/bin/g++   -DHAVE_CONFIG_H -D_GNU_SOURCE -Wall -Wextra -Werror -Wno-sign-compare -Wno-unused-result -Wno-unused-parameter -Wno-error=type-limits -Wno-error=unused-but-set-variable -Wno-inline -fno-strict-aliasing -Wno-unused-local-typedefs -Wno-unused-value -std=c++11 -O0 -ggdb  -I/home/oculus/trading-desk-project/code -I/home/oculus/trading-desk-project/code/src -I/home/oculus/trading-desk-project/code/ext/LibOVR/Include -I/usr/include/GL    -o CMakeFiles/Utils.dir/Date.cpp.o -c /home/oculus/trading-desk-project/code/src/Utils/Date.cpp",
+  "file": "/home/oculus/trading-desk-project/code/src/Utils/Date.cpp"
+},
+{
   "directory": "/home/oculus/trading-desk-project/code/bin/vrtradingdesk",
   "command": "/usr/bin/g++   -DHAVE_CONFIG_H -D_GNU_SOURCE -Wall -Wextra -Werror -Wno-sign-compare -Wno-unused-result -Wno-unused-parameter -Wno-error=type-limits -Wno-error=unused-but-set-variable -Wno-inline -fno-strict-aliasing -Wno-unused-local-typedefs -Wno-unused-value -std=c++11 -O0 -ggdb  -I/home/oculus/trading-desk-project/code -I/home/oculus/trading-desk-project/code/src -I/home/oculus/trading-desk-project/code/ext/LibOVR/Include -I/usr/include/GL    -o CMakeFiles/vrtradingdesk.dir/VRTradingDesk.cpp.o -c /home/oculus/trading-desk-project/code/bin/vrtradingdesk/VRTradingDesk.cpp",
   "file": "/home/oculus/trading-desk-project/code/bin/vrtradingdesk/VRTradingDesk.cpp"
+},
+{
+  "directory": "/home/oculus/trading-desk-project/code/test/TestReaders",
+  "command": "/usr/bin/g++   -DHAVE_CONFIG_H -D_GNU_SOURCE -Wall -Wextra -Werror -Wno-sign-compare -Wno-unused-result -Wno-unused-parameter -Wno-error=type-limits -Wno-error=unused-but-set-variable -Wno-inline -fno-strict-aliasing -Wno-unused-local-typedefs -Wno-unused-value -std=c++11 -O0 -ggdb  -I/home/oculus/trading-desk-project/code -I/home/oculus/trading-desk-project/code/src -I/home/oculus/trading-desk-project/code/ext/LibOVR/Include -I/usr/include/GL    -o CMakeFiles/TestReaders.dir/TestReaders.cpp.o -c /home/oculus/trading-desk-project/code/test/TestReaders/TestReaders.cpp",
+  "file": "/home/oculus/trading-desk-project/code/test/TestReaders/TestReaders.cpp"
+},
+{
+  "directory": "/home/oculus/trading-desk-project/code/test/TestReaders",
+  "command": "/usr/bin/g++   -DHAVE_CONFIG_H -D_GNU_SOURCE -Wall -Wextra -Werror -Wno-sign-compare -Wno-unused-result -Wno-unused-parameter -Wno-error=type-limits -Wno-error=unused-but-set-variable -Wno-inline -fno-strict-aliasing -Wno-unused-local-typedefs -Wno-unused-value -std=c++11 -O0 -ggdb  -I/home/oculus/trading-desk-project/code -I/home/oculus/trading-desk-project/code/src -I/home/oculus/trading-desk-project/code/ext/LibOVR/Include -I/usr/include/GL    -o CMakeFiles/TestReaders.dir/TestDataReaders.cpp.o -c /home/oculus/trading-desk-project/code/test/TestReaders/TestDataReaders.cpp",
+  "file": "/home/oculus/trading-desk-project/code/test/TestReaders/TestDataReaders.cpp"
+},
+{
+  "directory": "/home/oculus/trading-desk-project/code/test/TestReaders",
+  "command": "/usr/bin/g++   -DHAVE_CONFIG_H -D_GNU_SOURCE -Wall -Wextra -Werror -Wno-sign-compare -Wno-unused-result -Wno-unused-parameter -Wno-error=type-limits -Wno-error=unused-but-set-variable -Wno-inline -fno-strict-aliasing -Wno-unused-local-typedefs -Wno-unused-value -std=c++11 -O0 -ggdb  -I/home/oculus/trading-desk-project/code -I/home/oculus/trading-desk-project/code/src -I/home/oculus/trading-desk-project/code/ext/LibOVR/Include -I/usr/include/GL    -o CMakeFiles/TestReaders.dir/TestDataTypes.cpp.o -c /home/oculus/trading-desk-project/code/test/TestReaders/TestDataTypes.cpp",
+  "file": "/home/oculus/trading-desk-project/code/test/TestReaders/TestDataTypes.cpp"
+},
+{
+  "directory": "/home/oculus/trading-desk-project/code/test/TestReaders",
+  "command": "/usr/bin/g++   -DHAVE_CONFIG_H -D_GNU_SOURCE -Wall -Wextra -Werror -Wno-sign-compare -Wno-unused-result -Wno-unused-parameter -Wno-error=type-limits -Wno-error=unused-but-set-variable -Wno-inline -fno-strict-aliasing -Wno-unused-local-typedefs -Wno-unused-value -std=c++11 -O0 -ggdb  -I/home/oculus/trading-desk-project/code -I/home/oculus/trading-desk-project/code/src -I/home/oculus/trading-desk-project/code/ext/LibOVR/Include -I/usr/include/GL    -o CMakeFiles/TestReaders.dir/TestSourceReaders.cpp.o -c /home/oculus/trading-desk-project/code/test/TestReaders/TestSourceReaders.cpp",
+  "file": "/home/oculus/trading-desk-project/code/test/TestReaders/TestSourceReaders.cpp"
 }
 ]

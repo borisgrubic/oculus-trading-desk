@@ -8,6 +8,22 @@
         </df>
       </df>
       <df name="src">
+        <df name="DataPrograms">
+          <in>BuySellBarVisualisation.cpp</in>
+          <in>BuySellBarVisualisation.h</in>
+          <in>Visualisation.h</in>
+        </df>
+        <df name="DataReaders">
+          <in>CSVDataReader.cpp</in>
+          <in>DataReader.cpp</in>
+          <in>LineDataReader.cpp</in>
+        </df>
+        <df name="DataTypes">
+          <in>CSVDataType.cpp</in>
+        </df>
+        <df name="Exceptions">
+          <in>Exception.cpp</in>
+        </df>
         <df name="gui">
           <in>Display.cpp</in>
           <in>DisplayUtil.cpp</in>
@@ -19,6 +35,18 @@
         <df name="SourceReaders">
           <in>FileReader.cpp</in>
           <in>RandomCSVSimpleReader.cpp</in>
+          <in>YahooFinanceReader.cpp</in>
+        </df>
+        <df name="Utils">
+          <in>Date.cpp</in>
+        </df>
+      </df>
+      <df name="test">
+        <df name="TestReaders">
+          <in>TestDataReaders.cpp</in>
+          <in>TestDataTypes.cpp</in>
+          <in>TestReaders.cpp</in>
+          <in>TestSourceReaders.cpp</in>
         </df>
       </df>
     </df>
@@ -71,6 +99,38 @@
         <ccTool>
         </ccTool>
       </item>
+      <item path="src/DataPrograms/BuySellBarVisualisation.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/DataPrograms/BuySellBarVisualisation.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/DataPrograms/Visualisation.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/DataReaders/CSVDataReader.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool>
+        </ccTool>
+      </item>
+      <item path="src/DataReaders/DataReader.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool>
+        </ccTool>
+      </item>
+      <item path="src/DataReaders/LineDataReader.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool>
+        </ccTool>
+      </item>
+      <item path="src/DataTypes/CSVDataType.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool>
+        </ccTool>
+      </item>
+      <item path="src/Exceptions/Exception.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool>
+        </ccTool>
+      </item>
       <item path="src/SourceReaders/FileReader.cpp" ex="false" tool="1" flavor2="8">
         <ccTool>
         </ccTool>
@@ -79,6 +139,17 @@
             ex="false"
             tool="1"
             flavor2="8">
+        <ccTool>
+        </ccTool>
+      </item>
+      <item path="src/SourceReaders/YahooFinanceReader.cpp"
+            ex="false"
+            tool="1"
+            flavor2="8">
+        <ccTool>
+        </ccTool>
+      </item>
+      <item path="src/Utils/Date.cpp" ex="false" tool="1" flavor2="8">
         <ccTool>
         </ccTool>
       </item>
@@ -95,6 +166,28 @@
         </ccTool>
       </item>
       <item path="src/io/Device.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool>
+        </ccTool>
+      </item>
+      <item path="test/TestReaders/TestDataReaders.cpp"
+            ex="false"
+            tool="1"
+            flavor2="8">
+        <ccTool>
+        </ccTool>
+      </item>
+      <item path="test/TestReaders/TestDataTypes.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool>
+        </ccTool>
+      </item>
+      <item path="test/TestReaders/TestReaders.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool>
+        </ccTool>
+      </item>
+      <item path="test/TestReaders/TestSourceReaders.cpp"
+            ex="false"
+            tool="1"
+            flavor2="8">
         <ccTool>
         </ccTool>
       </item>
