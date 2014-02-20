@@ -287,6 +287,10 @@
         <df name="CMakeFiles">
         </df>
         <df name="DataPrograms">
+          <df name="CMakeFiles">
+            <df name="DataPrograms.dir">
+            </df>
+          </df>
           <in>BuySellBarVisualisation.cpp</in>
           <in>BuySellBarVisualisation.h</in>
           <in>Visualisation.h</in>

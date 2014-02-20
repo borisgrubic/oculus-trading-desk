@@ -11,6 +11,8 @@
 GLuint screenShaderProgram;
 GLuint visAShaderProgram;
 
+
+
 // Get the 'monitor' at position specified by HMD Info
 // This should be the OVR
 GLFWmonitor* getMonitorAtPosition(glm::ivec2 & position) {

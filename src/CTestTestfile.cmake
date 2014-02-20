@@ -6,6 +6,7 @@
 # testing this directory and lists subdirectories to be tested as well.
 SUBDIRS(gui)
 SUBDIRS(io)
+SUBDIRS(DataPrograms)
 SUBDIRS(DataReaders)
 SUBDIRS(DataTypes)
 SUBDIRS(Exceptions)

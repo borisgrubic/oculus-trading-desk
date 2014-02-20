@@ -1,8 +1,10 @@
 #ifndef VISUALISATION_H
 #define	VISUALISATION_H
 
+#include <GL/glew.h>
 #include <cstdlib>
 #include <vector>
+#include <string>
 
 class Visualisation {
     
@@ -13,11 +15,11 @@ class Visualisation {
     GLuint shaderProgram;
     
     public:
-        Visualisation(std::vector<std::string> companies);
-        virtual void InitBuffers();
-        virtual void CreateProgram();
-        virtual void Render();   
-    
+        virtual void InitBuffers() = 0;
+        virtual void InitProgram() = 0;
+        virtual void UpdateView(glm::mat4 eyeModelview, glm::mat4 eyeProjection) = 0;
+        virtual void Render() = 0;   
+        virtual ~Visualisation() {}
 };
 
 

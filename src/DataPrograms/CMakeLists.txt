@@ -1,0 +1,7 @@
+ADD_PROJECT_LIBRARY(DataPrograms)
+TARGET_LINK_LIBRARIES(DataPrograms gui)
+TARGET_LINK_LIBRARIES(DataPrograms io)
+TARGET_LINK_LIBRARIES(DataPrograms DataTypes)
+TARGET_LINK_LIBRARIES(DataPrograms DataReaders)
+TARGET_LINK_LIBRARIES(DataPrograms SourceReaders)
+
