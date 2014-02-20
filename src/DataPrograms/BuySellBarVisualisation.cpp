@@ -2,41 +2,16 @@
 #include <GL/glew.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/type_ptr.hpp>
+#include <glm/gtx/transform.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 #include "BuySellBarVisualisation.h"
 #include "gui/DisplayUtil.h"
 #include "DataReaders/CSVDataReader.h"
 #include "DataReaders/DataReader.h"
 #include "SourceReaders/RandomCSVSimpleReader.h"
-#include "gui/ScreenModel.h"
-
-int cycle2 = 0;
-
-const std::string BuySellBarVisualisation::vertexShader = 
-"#version 330\n"
-"layout(location = 0) in vec4 position;\n"
-"layout(location = 1) in vec4 color;\n"
-"smooth out vec4 theColor;\n"
-"uniform mat4 projectionMat;\n"
-"uniform mat4 modelViewMat;\n"
-"uniform vec4 offset;\n"
-"uniform vec4 scale;\n"
-"uniform vec4 recolor;\n"
-"void main(){\n"
-"gl_Position = projectionMat * modelViewMat * ((position*scale) + offset); \n"
-"theColor = recolor;\n"
-	"}\n";
-
-const std::string BuySellBarVisualisation::fragmentShader =
-"#version 330\n"
-"smooth in vec4 theColor;\n"
-"out vec4 outputColor;\n"
-"void main()\n"
-"{\n"
-"   outputColor = theColor;\n"
-	"}\n";
 
 // Divisor
-const float BuySellBarVisualisation::divisor[] = {
+float BuySellBarVisualisation::divisor[] = {
 	// position
 	0.01f, 1.4f, -2.9f, 1.0f,
 	0.01f, -1.4f, -2.9f, 1.0f,
@@ -52,7 +27,7 @@ const float BuySellBarVisualisation::divisor[] = {
    };
 
 // A single bar to be duplicated and resized
-const float BuySellBarVisualisation::bar[] = {
+float BuySellBarVisualisation::bar[] = {
         // position
 	0.0f, 1.4f, -2.9f, 1.0f,
 	0.0f, 1.2f, -2.9f, 1.0f,
@@ -69,6 +44,29 @@ BuySellBarVisualisation::BuySellBarVisualisation(std::string name){
     
     this->name = name;
     
+    this->vertexShader = "#version 330\n"
+        "layout(location = 0) in vec4 position;\n"
+        "layout(location = 1) in vec4 color;\n"
+        "smooth out vec4 theColor;\n"   
+        "uniform mat4 projectionMat;\n"
+        "uniform mat4 modelViewMat;\n"
+        "uniform mat4 screenOffsetMat;\n"
+        "uniform vec4 offset;\n"
+        "uniform vec4 scale;\n"
+        "uniform vec4 recolor;\n"
+        "void main(){\n"
+        "gl_Position = screenOffsetMat * projectionMat * modelViewMat * ((position*scale) + offset); \n"
+        "theColor = recolor;\n"
+	"}\n";
+    
+    this-> fragmentShader = "#version 330\n"
+        "smooth in vec4 theColor;\n"
+        "out vec4 outputColor;\n"
+        "void main()\n"
+        "{\n"
+        "   outputColor = theColor;\n"
+                "}\n";
+    
     this->reader = new CSVDataReader(new RandomCSVSimpleReader());
     
     this->companyOffsets = *(new vector<float>(5));
@@ -78,6 +76,8 @@ BuySellBarVisualisation::BuySellBarVisualisation(std::string name){
         std::fill(companyScales.begin(),companyScales.end(),0.0f);
         std::fill(companyColours.begin(),companyColours.end(), *(new glm::vec3(1.0f, 0.0f, 0.0f)));
     
+        
+    this->cycle = 0;
 }
 
 BuySellBarVisualisation::~BuySellBarVisualisation(){
@@ -110,12 +110,13 @@ void BuySellBarVisualisation::InitBuffers(){
 void BuySellBarVisualisation::InitProgram(){
     
     std::vector<GLuint> shaderList;
-    shaderList.push_back(CreateShader(GL_VERTEX_SHADER, vertexShader));
-    shaderList.push_back(CreateShader(GL_FRAGMENT_SHADER, fragmentShader));
-    shaderProgram = CreateProgram(shaderList);
+    shaderList.push_back(CreateShader(GL_VERTEX_SHADER, this->vertexShader));
+    shaderList.push_back(CreateShader(GL_FRAGMENT_SHADER, this->fragmentShader));
+    this->shaderProgram = CreateProgram(shaderList);
     std::for_each(shaderList.begin(), shaderList.end(), glDeleteShader);
         
     std::cout << this->name << " shader program created." << std::endl;
+   
     
 }
 
@@ -189,25 +190,25 @@ void BuySellBarVisualisation::ComputeChange(){
             companyColours.at(4).z = boxb;
         }
     
-    
+        std::cout << this->name << " offset: " << this->companyScales.at(0) << " scalex: " << scalex << std::endl;
 }
 
 void BuySellBarVisualisation::UpdateView(glm::mat4 eyeModelview, glm::mat4 eyeProjection){
     
   // Give updated modelview/perspective matrices to shader
-  glUseProgram(shaderProgram);
-	GLuint modelViewMatUnif = glGetUniformLocation(shaderProgram, "modelViewMat");
+  glUseProgram(this->shaderProgram);
+	GLuint modelViewMatUnif = glGetUniformLocation(this->shaderProgram, "modelViewMat");
 	glUniformMatrix4fv(modelViewMatUnif, 1, GL_FALSE, glm::value_ptr(eyeModelview));
-	GLuint projectionMatUnif = glGetUniformLocation(shaderProgram, "projectionMat");
+	GLuint projectionMatUnif = glGetUniformLocation(this->shaderProgram, "projectionMat");
 	glUniformMatrix4fv(projectionMatUnif, 1, GL_FALSE, glm::value_ptr(eyeProjection));
   glUseProgram(0);
     
 }
 
 void BuySellBarVisualisation::Render(){ 
-  
-    if(cycle2==0){
-        ComputeChange();
+      
+    if(cycle==0){
+        this->ComputeChange();
     }
     
     // Render divisor
@@ -225,7 +226,7 @@ void BuySellBarVisualisation::Render(){
    for(int i=0; i< 14; i++){
               
        // Set offset, scale 
-       GLuint visBoxScaleUnif = glGetUniformLocation(shaderProgram, "scale");
+       GLuint visBoxScaleUnif = glGetUniformLocation(this->shaderProgram, "scale");
        glUniform4f(visBoxScaleUnif, companyScales.at(i%5), 1.0f, 1.0f, 1.0f);
        
        float boxoff = 0.0f;
@@ -245,10 +246,10 @@ void BuySellBarVisualisation::Render(){
            boxoff = 0.01f;
        }
 
-       GLuint visBoxOffsetUnif = glGetUniformLocation(shaderProgram, "offset");
+       GLuint visBoxOffsetUnif = glGetUniformLocation(this->shaderProgram, "offset");
        glUniform4f(visBoxOffsetUnif, boxoff, (float)-0.2*i, 0.0f, 0.0f);
        
-       GLuint visBoxColourUnif = glGetUniformLocation(shaderProgram, "recolor");
+       GLuint visBoxColourUnif = glGetUniformLocation(this->shaderProgram, "recolor");
        glUniform4f(visBoxColourUnif, companyColours.at(i%5).x, companyColours.at(i%5).y, companyColours.at(i%5).z, 1.0f);
         
        // Render quads
@@ -265,15 +266,24 @@ void BuySellBarVisualisation::Render(){
     }
     
     // Reset offset and scale
-    glUseProgram(shaderProgram);
-    GLuint visBoxOffsetUnif = glGetUniformLocation(shaderProgram, "offset");
+    glUseProgram(this->shaderProgram);
+    GLuint visBoxOffsetUnif = glGetUniformLocation(this->shaderProgram, "offset");
     glUniform4f(visBoxOffsetUnif, 0.0f, 0.0f, 0.0f, 0.0f);
-    GLuint visBoxScaleUnif = glGetUniformLocation(shaderProgram, "scale");
+    GLuint visBoxScaleUnif = glGetUniformLocation(this->shaderProgram, "scale");
     glUniform4f(visBoxScaleUnif, 1.0f, 1.0f, 1.0f, 1.0f);
-    GLuint visBoxColourUnif = glGetUniformLocation(shaderProgram, "recolor");
+    GLuint visBoxColourUnif = glGetUniformLocation(this->shaderProgram, "recolor");
     glUniform4f(visBoxColourUnif, 1.0f, 1.0f, 1.0f, 1.0f); 
     glUseProgram(0);
          
     
-    cycle2 = (cycle2 +1) %50;
+    cycle = (cycle +1) %50;
+}
+
+void BuySellBarVisualisation::SetPosition(glm::mat4 screenOffset){
+    
+     glUseProgram(shaderProgram);
+        GLuint screenOffsetUnif = glGetUniformLocation(shaderProgram, "screenOffsetMat");
+	glUniformMatrix4fv(screenOffsetUnif, 1, GL_FALSE, glm::value_ptr(screenOffset));
+     glUseProgram(0);
+    
 }

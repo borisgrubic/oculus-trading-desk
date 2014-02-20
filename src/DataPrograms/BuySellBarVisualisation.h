@@ -14,11 +14,11 @@ class BuySellBarVisualisation : public Visualisation {
         private:
             std::string name;
             // Shaders
-            static const std::string vertexShader;
-            static const std::string fragmentShader;
+            std::string vertexShader;
+            std::string fragmentShader;
             // Vertex data
-            static const float divisor[32];
-            static const float bar[32];
+            static float divisor[32];
+            static float bar[];
             // Buffers
             GLuint divisorBuffer;
             GLuint barBuffer;
@@ -30,6 +30,7 @@ class BuySellBarVisualisation : public Visualisation {
             vector<float> companyOffsets;
             vector<float> companyScales;
             vector<glm::vec3> companyColours;
+            int cycle;
         public:
             BuySellBarVisualisation(std::string name);
             ~BuySellBarVisualisation();
@@ -37,6 +38,7 @@ class BuySellBarVisualisation : public Visualisation {
             void InitProgram();
             void ComputeChange();
             void UpdateView(glm::mat4 eyeModelview, glm::mat4 eyeProjection);
+            void SetPosition(glm::mat4 screenOffset);
             void Render();
 };
 

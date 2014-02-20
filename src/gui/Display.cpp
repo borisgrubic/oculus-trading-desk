@@ -8,6 +8,7 @@
 
 #include <glm/glm.hpp>
 #include <glm/gtc/type_ptr.hpp>
+#include <glm/gtx/transform.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/quaternion.hpp>
 
@@ -20,6 +21,7 @@
 #include "DataReaders/CSVDataReader.h"
 #include "DataTypes/CSVDataType.h"
 #include "SourceReaders/RandomCSVSimpleReader.h"
+
 #include "DataPrograms/Visualisation.h"
 #include "DataPrograms/BuySellBarVisualisation.h"
 
@@ -36,6 +38,7 @@ glm::mat4 modelviewProjection;
 using namespace OVR;
 
 Visualisation* visB;
+Visualisation* visA;
 
 /* Global variables to hold device handles*/
 float aspectRatio;
@@ -105,9 +108,19 @@ void Init(bool displayOnScreen){
 	InitProgram();
         InitBuffers();
         
+        // Create visualisations
+        // Visualisation A (left screen)
+        visA = new BuySellBarVisualisation("Test visualisation");
+        visA->InitBuffers();
+        visA->InitProgram();
+        // Visualisation B (main screen)
         visB = new BuySellBarVisualisation("Stock Buy Sell Data");
         visB->InitBuffers();
         visB->InitProgram();
+        
+        // Set visualisation positions
+        visA->SetPosition(glm::translate(0.0f, 0.5f, 0.0f));
+        visB->SetPosition(glm::translate(2.0f, -0.5f, 0.0f));
         
 }
 
@@ -148,6 +161,7 @@ void UpdateView(glm::vec3 eyeProjectionOffset, glm::vec3 eyeModelviewOffset){
 	glUniformMatrix4fv(projectionMatUnif, 1, GL_FALSE, glm::value_ptr(eyeProjection));
 	glUseProgram(0);
         
+        visA->UpdateView(eyeModelview, eyeProjection);
         visB->UpdateView(eyeModelview, eyeProjection);
 
 }
@@ -250,6 +264,7 @@ void RunDisplay(){
 			// Render screen quads
 			RenderScreens();
                         glError();
+                        visA->Render();
                         visB->Render();
                         glError();
                         
