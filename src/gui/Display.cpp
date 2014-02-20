@@ -103,10 +103,7 @@ void Init(bool displayOnScreen){
 
 	// Initialise the shader program
 	InitProgram();
-
         InitBuffers();
-        InitTestGraphBuffers();
-        InitVisualisationBuffers();
         
         visB = new BuySellBarVisualisation("Stock Buy Sell Data");
         visB->InitBuffers();

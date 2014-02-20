@@ -107,14 +107,5 @@ void InitProgram(){
 	std::for_each(screenShaderList.begin(), screenShaderList.end(), glDeleteShader);
         
         std::cout << "screen program loaded" << std::endl;
-        
-        // Vis A shader program
-        std::vector<GLuint> visAShaderList;
-	visAShaderList.push_back(CreateShader(GL_VERTEX_SHADER, visAVertexShader));
-	visAShaderList.push_back(CreateShader(GL_FRAGMENT_SHADER, visAFragmentShader));
-	visAShaderProgram = CreateProgram(visAShaderList);
-	std::for_each(visAShaderList.begin(), visAShaderList.end(), glDeleteShader);
-        
-        std::cout << "vis A program loaded" << std::endl;
 
 }

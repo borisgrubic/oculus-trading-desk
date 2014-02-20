@@ -84,6 +84,8 @@
         </df>
         <df name="NightlyUpdate.dir">
         </df>
+        <df name="Progress">
+        </df>
       </df>
       <df name="ext">
         <df name="libgmock">
