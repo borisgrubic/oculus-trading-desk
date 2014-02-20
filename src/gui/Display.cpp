@@ -119,8 +119,8 @@ void Init(bool displayOnScreen){
         visB->InitProgram();
         
         // Set visualisation positions
-        visA->SetPosition(glm::translate(0.0f, 0.5f, 0.0f));
-        visB->SetPosition(glm::translate(2.0f, -0.5f, 0.0f));
+        visA->SetPosition(glm::translate(0.0f, 0.0f, 0.0f), 0.0f);
+        visB->SetPosition(glm::translate(3.5f, 0.0f, 3.0f), 0.0f);
         
 }
 

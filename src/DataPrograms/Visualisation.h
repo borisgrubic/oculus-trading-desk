@@ -18,7 +18,7 @@ class Visualisation {
         virtual void InitBuffers() = 0;
         virtual void InitProgram() = 0;
         virtual void UpdateView(glm::mat4 eyeModelview, glm::mat4 eyeProjection) = 0;
-        virtual  void SetPosition(glm::mat4 screenOffset) = 0;
+        virtual  void SetPosition(glm::mat4 screenOffset, float rotation) = 0;
         virtual void Render() = 0;
         virtual ~Visualisation() {}
 };
