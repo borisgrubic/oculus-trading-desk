@@ -51,11 +51,12 @@ BuySellBarVisualisation::BuySellBarVisualisation(std::string name){
         "uniform mat4 projectionMat;\n"
         "uniform mat4 modelViewMat;\n"
         "uniform mat4 screenOffsetMat;\n"
+        "uniform mat4 rotationMat;\n"
         "uniform vec4 offset;\n"
         "uniform vec4 scale;\n"
         "uniform vec4 recolor;\n"
         "void main(){\n"
-        "gl_Position = projectionMat * modelViewMat * (screenOffsetMat * ((position*scale) + offset)); \n"
+        "gl_Position = projectionMat * modelViewMat * (screenOffsetMat * rotationMat *((position*scale) + offset)); \n"
         "theColor = recolor;\n"
 	"}\n";
     
@@ -281,6 +282,12 @@ void BuySellBarVisualisation::Render(){
 
 void BuySellBarVisualisation::SetPosition(glm::mat4 screenOffset, float rotation){
     
+    glm::mat4 rotationMat = glm::rotate(rotation , glm::vec3(0.0, 1.0, 0.0));
+    
+    glUseProgram(shaderProgram);
+        GLuint rotationUnif = glGetUniformLocation(shaderProgram, "rotationMat");
+	glUniformMatrix4fv(rotationUnif, 1, GL_FALSE, glm::value_ptr(rotationMat));
+     glUseProgram(0);
     
      glUseProgram(shaderProgram);
         GLuint screenOffsetUnif = glGetUniformLocation(shaderProgram, "screenOffsetMat");

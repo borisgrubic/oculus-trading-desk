@@ -39,6 +39,7 @@ using namespace OVR;
 
 Visualisation* visB;
 Visualisation* visA;
+Visualisation* visC;
 
 /* Global variables to hold device handles*/
 float aspectRatio;
@@ -109,18 +110,23 @@ void Init(bool displayOnScreen){
         InitBuffers();
         
         // Create visualisations
-        // Visualisation A (left screen)
+        // Visualisation A (main screen)
         visA = new BuySellBarVisualisation("Test visualisation");
         visA->InitBuffers();
         visA->InitProgram();
-        // Visualisation B (main screen)
+        // Visualisation B (right screen)
         visB = new BuySellBarVisualisation("Stock Buy Sell Data");
         visB->InitBuffers();
         visB->InitProgram();
+        // Visualisation B (left screen)
+        visC = new BuySellBarVisualisation("Stock Buy Sell Data 2");
+        visC->InitBuffers();
+        visC->InitProgram();
         
         // Set visualisation positions
         visA->SetPosition(glm::translate(0.0f, 0.0f, 0.0f), 0.0f);
-        visB->SetPosition(glm::translate(3.5f, 0.0f, 3.0f), 0.0f);
+        visB->SetPosition(glm::translate(6.0f, 0.0f, 0.0f), 100.0f);
+        visC->SetPosition(glm::translate(-6.0f, 0.0f, 0.0f), -100.0f);
         
 }
 
@@ -163,6 +169,7 @@ void UpdateView(glm::vec3 eyeProjectionOffset, glm::vec3 eyeModelviewOffset){
         
         visA->UpdateView(eyeModelview, eyeProjection);
         visB->UpdateView(eyeModelview, eyeProjection);
+        visC->UpdateView(eyeModelview, eyeProjection);
 
 }
 
@@ -266,6 +273,7 @@ void RunDisplay(){
                         glError();
                         visA->Render();
                         visB->Render();
+                        visC->Render();
                         glError();
                         
 
