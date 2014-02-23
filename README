@@ -3,7 +3,7 @@ Fedora Dependencies:
 
 Please modify if you add/find more dependencies:
 
-> sudo yum install glm-devel glfw glfw-devel glew-devel libgudev1-devel cmake gcc-c++
+> sudo yum install glm-devel glfw glfw-devel glew-devel libgudev1-devel cmake gcc-c++ hdf5-devel
 
 for some reason libudev was not symlinked, so:
 
