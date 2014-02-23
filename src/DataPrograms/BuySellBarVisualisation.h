@@ -38,7 +38,7 @@ class BuySellBarVisualisation : public Visualisation {
             void InitProgram();
             void ComputeChange();
             void UpdateView(glm::mat4 eyeModelview, glm::mat4 eyeProjection);
-            void SetPosition(glm::mat4 screenOffset, float rotation);
+            void SetPosition(glm::mat4 screenOffset, float rotX, float rotY);
             void Render();
 };
 

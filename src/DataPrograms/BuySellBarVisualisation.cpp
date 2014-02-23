@@ -280,13 +280,14 @@ void BuySellBarVisualisation::Render(){
     cycle = (cycle +1) %50;
 }
 
-void BuySellBarVisualisation::SetPosition(glm::mat4 screenOffset, float rotation){
+void BuySellBarVisualisation::SetPosition(glm::mat4 screenOffset, float rotX, float rotY){
     
-    glm::mat4 rotationMat = glm::rotate(rotation , glm::vec3(0.0, 1.0, 0.0));
+    glm::mat4 rotationYMat = glm::rotate(rotY , glm::vec3(0.0, 1.0, 0.0));
+    glm::mat4 rotationXMat = glm::rotate(rotationYMat, rotX , glm::vec3(1.0, 0.0, 0.0));
     
     glUseProgram(shaderProgram);
         GLuint rotationUnif = glGetUniformLocation(shaderProgram, "rotationMat");
-	glUniformMatrix4fv(rotationUnif, 1, GL_FALSE, glm::value_ptr(rotationMat));
+	glUniformMatrix4fv(rotationUnif, 1, GL_FALSE, glm::value_ptr(rotationXMat));
      glUseProgram(0);
     
      glUseProgram(shaderProgram);

@@ -40,6 +40,8 @@ using namespace OVR;
 Visualisation* visB;
 Visualisation* visA;
 Visualisation* visC;
+Visualisation* visD;
+Visualisation* visE;
 
 /* Global variables to hold device handles*/
 float aspectRatio;
@@ -111,22 +113,32 @@ void Init(bool displayOnScreen){
         
         // Create visualisations
         // Visualisation A (main screen)
-        visA = new BuySellBarVisualisation("Test visualisation");
+        visA = new BuySellBarVisualisation("Stock Buy Sell Data 1");
         visA->InitBuffers();
         visA->InitProgram();
-        // Visualisation B (right screen)
-        visB = new BuySellBarVisualisation("Stock Buy Sell Data");
+        // Visualisation B (right screen) 
+        visB = new BuySellBarVisualisation("Stock Buy Sell Data 2");
         visB->InitBuffers();
         visB->InitProgram();
-        // Visualisation B (left screen)
-        visC = new BuySellBarVisualisation("Stock Buy Sell Data 2");
+        // Visualisation C (left screen)
+        visC = new BuySellBarVisualisation("Stock Buy Sell Data 3");
         visC->InitBuffers();
         visC->InitProgram();
+        // Visualisation D (top screen)
+        visD = new BuySellBarVisualisation("Stock Buy Sell Data 4");
+        visD->InitBuffers();
+        visD->InitProgram();
+        // Visualisation E (bottom screen)
+        visE = new BuySellBarVisualisation("Stock Buy Sell Data 5");
+        visE->InitBuffers();
+        visE->InitProgram();
         
         // Set visualisation positions
-        visA->SetPosition(glm::translate(0.0f, 0.0f, 0.0f), 0.0f);
-        visB->SetPosition(glm::translate(6.0f, 0.0f, 0.0f), 100.0f);
-        visC->SetPosition(glm::translate(-6.0f, 0.0f, 0.0f), -100.0f);
+        visA->SetPosition(glm::translate(0.0f, 0.0f, 0.0f), 0.0f, 0.0f);
+        visB->SetPosition(glm::translate(2.0f, 0.0f, 0.0f), 0.0f, -70.0f);
+        visC->SetPosition(glm::translate(-2.0f, 0.0f, 0.0f), 0.0f, 70.0f);
+        visD->SetPosition(glm::translate(0.0f, 2.0f, 0.0f), 45.0f, 0.0f);
+        visE->SetPosition(glm::translate(0.0f, -2.0f, 0.0f), -45.0f, 0.0f);
         
 }
 
@@ -170,6 +182,8 @@ void UpdateView(glm::vec3 eyeProjectionOffset, glm::vec3 eyeModelviewOffset){
         visA->UpdateView(eyeModelview, eyeProjection);
         visB->UpdateView(eyeModelview, eyeProjection);
         visC->UpdateView(eyeModelview, eyeProjection);
+        visD->UpdateView(eyeModelview, eyeProjection);
+        visE->UpdateView(eyeModelview, eyeProjection);
 
 }
 
@@ -270,10 +284,11 @@ void RunDisplay(){
 
 			// Render screen quads
 			RenderScreens();
-                        glError();
                         visA->Render();
                         visB->Render();
                         visC->Render();
+                        visD->Render();
+                        visE->Render();
                         glError();
                         
 
