@@ -24,6 +24,7 @@
 
 #include "DataPrograms/Visualisation.h"
 #include "DataPrograms/BuySellBarVisualisation.h"
+#include "DataPrograms/AskBidBubbleChart.h"
 
 GLFWwindow* window;
 
@@ -59,6 +60,7 @@ void Init(bool displayOnScreen){
 	}
 
 	glfwWindowHint(GLFW_DEPTH_BITS, 16);
+        glfwWindowHint(GLFW_SAMPLES, 8);
 
 	windowPosition = glm::ivec2(device->Info.DesktopX, device->Info.DesktopY);
 
@@ -106,6 +108,12 @@ void Init(bool displayOnScreen){
 		std::cout << "Failed to initialise GLEW" << std::endl;
 		exit(0);
 	}
+        
+        // Enable antialiasing
+        glEnable(GL_BLEND);
+        glEnable(GL_POLYGON_SMOOTH);
+        //glBlendFunc(GL_SRC_ALPHA_SATURATE, GL_ONE_MINUS_SRC_ALPHA);
+        glHint(GL_POLYGON_SMOOTH_HINT, GL_NICEST);
 
 	// Initialise the shader program
 	InitProgram();
@@ -116,20 +124,21 @@ void Init(bool displayOnScreen){
         visA = new BuySellBarVisualisation("Stock Buy Sell Data 1");
         visA->InitBuffers();
         visA->InitProgram();
+        
         // Visualisation B (right screen) 
-        visB = new BuySellBarVisualisation("Stock Buy Sell Data 2");
+        visB = new AskBidBubbleChart("Ask bid bubble chart 1");
         visB->InitBuffers();
         visB->InitProgram();
         // Visualisation C (left screen)
-        visC = new BuySellBarVisualisation("Stock Buy Sell Data 3");
+        visC = new AskBidBubbleChart("Ask bid bubble chart 2");
         visC->InitBuffers();
         visC->InitProgram();
         // Visualisation D (top screen)
-        visD = new BuySellBarVisualisation("Stock Buy Sell Data 4");
+        visD = new BuySellBarVisualisation("Stock Buy Sell Data 2");
         visD->InitBuffers();
         visD->InitProgram();
         // Visualisation E (bottom screen)
-        visE = new BuySellBarVisualisation("Stock Buy Sell Data 5");
+        visE = new BuySellBarVisualisation("Stock Buy Sell Data 3");
         visE->InitBuffers();
         visE->InitProgram();
         
@@ -257,9 +266,10 @@ void RunDisplay(){
 
 		// Set the viewport to the oculus rift size and clear buffers
 		glViewport(0, 0, device->Info.HResolution, device->Info.VResolution);
-		glClearColor(0.1f, 1.0f, 0.1f, 1.0f);
+		glClearColor(0.01f, 0.01f, 0.01f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
+                
+                
 		// We need to render twice, once for each eye
 		for (int i = 0; i < 2; ++i) {
 			
@@ -278,6 +288,8 @@ void RunDisplay(){
 
 			// Size the viewport for the current eye
 			glViewport(eye.viewportLocation.x, 0, device->Info.HResolution / 2, device->Info.VResolution);
+                        
+                        
                         
 			// Get sensor information and render updated view
 			UpdateView(eyeProjectionOffset, eyeModelviewOffset);

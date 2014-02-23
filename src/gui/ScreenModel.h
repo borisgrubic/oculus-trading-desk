@@ -18,7 +18,6 @@ extern const float topScreen[32];
 extern const float bottomScreen[32];
 extern const float leftScreen[32];
 extern const float rightScreen[32];
-extern const float testGraph[32];
 
 void InitBuffers();
 

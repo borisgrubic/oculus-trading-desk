@@ -18,7 +18,7 @@ class BuySellBarVisualisation : public Visualisation {
             std::string fragmentShader;
             // Vertex data
             static float divisor[32];
-            static float bar[];
+            static float bar[32];
             // Buffers
             GLuint divisorBuffer;
             GLuint barBuffer;

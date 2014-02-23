@@ -22,7 +22,6 @@ float BuySellBarVisualisation::divisor[] = {
 	1.0f, 1.0f, 1.0f, 1.0f,
 	1.0f, 1.0f, 1.0f, 1.0f,
 	1.0f, 1.0f, 1.0f, 1.0f,
-        // Box 1
         
    };
 
@@ -191,7 +190,6 @@ void BuySellBarVisualisation::ComputeChange(){
             companyColours.at(4).z = boxb;
         }
     
-        std::cout << this->name << " offset: " << this->companyScales.at(0) << " scalex: " << scalex << std::endl;
 }
 
 void BuySellBarVisualisation::UpdateView(glm::mat4 eyeModelview, glm::mat4 eyeProjection){
