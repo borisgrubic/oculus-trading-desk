@@ -10,9 +10,6 @@
 class AskBidBubbleChart : public Visualisation {    
         private:
             std::string name;
-            // Shaders
-            std::string vertexShader;
-            std::string fragmentShader;
             // Vertex data
             static float xaxis[32];
             static float yaxis[32];
@@ -21,8 +18,6 @@ class AskBidBubbleChart : public Visualisation {
             GLuint xaxisBuffer;
             GLuint yaxisBuffer;
             GLuint bubbleBuffer;
-            // Shader program
-            GLuint shaderProgram;
             // For computation
             int cycle;
             int cycle2;
