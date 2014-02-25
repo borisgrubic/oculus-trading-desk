@@ -25,3 +25,4 @@ nbproject
 #data files
 src/DataReaders/2014.01.02/*
 src/DataReaders/2014.01.02.tar.bz
+/build/

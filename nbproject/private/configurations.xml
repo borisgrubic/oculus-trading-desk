@@ -295,6 +295,10 @@
           <in>AskBidBubbleChart.h</in>
           <in>BuySellBarVisualisation.cpp</in>
           <in>BuySellBarVisualisation.h</in>
+          <in>HeatmapVisualisation.cpp</in>
+          <in>HeatmapVisualisation.h</in>
+          <in>LineGraph.cpp</in>
+          <in>LineGraph.h</in>
           <in>Visualisation.h</in>
         </df>
         <df name="DataReaders">

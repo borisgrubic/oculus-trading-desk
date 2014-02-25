@@ -25,6 +25,7 @@
 #include "DataPrograms/Visualisation.h"
 #include "DataPrograms/BuySellBarVisualisation.h"
 #include "DataPrograms/AskBidBubbleChart.h"
+#include "DataPrograms/LineGraph.h"
 
 GLFWwindow* window;
 
@@ -121,10 +122,10 @@ void Init(bool displayOnScreen){
         
         // Create visualisations
         // Visualisation A (main screen)
-        visA = new BuySellBarVisualisation("Stock Buy Sell Data 1");
+        visA = new LineGraph("LineGraph 1");
         visA->InitBuffers();
         visA->InitProgram();
-        
+       
         // Visualisation B (right screen) 
         visB = new AskBidBubbleChart("Ask bid bubble chart 1");
         visB->InitBuffers();

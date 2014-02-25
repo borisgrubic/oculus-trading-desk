@@ -11,6 +11,8 @@
         <df name="DataPrograms">
           <in>AskBidBubbleChart.cpp</in>
           <in>BuySellBarVisualisation.cpp</in>
+          <in>LineGraph.cpp</in>
+          <in>LineGraph.h</in>
         </df>
         <df name="DataReaders">
           <in>CSVDataReader.cpp</in>
@@ -112,6 +114,10 @@
             flavor2="4">
         <ccTool>
         </ccTool>
+      </item>
+      <item path="src/DataPrograms/LineGraph.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/DataPrograms/LineGraph.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/DataReaders/CSVDataReader.cpp" ex="false" tool="1" flavor2="8">
         <ccTool>
