@@ -13,17 +13,12 @@
 class BuySellBarVisualisation : public Visualisation {    
         private:
             std::string name;
-            // Shaders
-            std::string vertexShader;
-            std::string fragmentShader;
             // Vertex data
             static float divisor[32];
             static float bar[32];
             // Buffers
             GLuint divisorBuffer;
             GLuint barBuffer;
-            // Shader program
-            GLuint shaderProgram;
             // Readers
             CSVDataReader* reader;
             // For computation

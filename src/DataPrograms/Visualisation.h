@@ -7,12 +7,10 @@
 #include <string>
 
 class Visualisation {
-    
-    std::string name;
-    
-    const std::string vertexShader;
-    const std::string fragmentShader;
-    GLuint shaderProgram;
+    protected:    
+        const std::string vertexShader;
+        const std::string fragmentShader;
+        GLuint shaderProgram;
     
     public:
         virtual void InitBuffers() = 0;
