@@ -9,14 +9,14 @@
       </df>
       <df name="src">
         <df name="DataPrograms">
+          <in>AskBidBubbleChart.cpp</in>
           <in>BuySellBarVisualisation.cpp</in>
-          <in>BuySellBarVisualisation.h</in>
-          <in>Visualisation.h</in>
         </df>
         <df name="DataReaders">
           <in>CSVDataReader.cpp</in>
           <in>DataReader.cpp</in>
           <in>LineDataReader.cpp</in>
+          <in>MDArchiveDataReader.cpp</in>
         </df>
         <df name="DataTypes">
           <in>CSVDataType.cpp</in>
@@ -99,17 +99,19 @@
         <ccTool>
         </ccTool>
       </item>
+      <item path="src/DataPrograms/AskBidBubbleChart.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+        <ccTool>
+        </ccTool>
+      </item>
       <item path="src/DataPrograms/BuySellBarVisualisation.cpp"
             ex="false"
             tool="1"
-            flavor2="0">
-      </item>
-      <item path="src/DataPrograms/BuySellBarVisualisation.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="src/DataPrograms/Visualisation.h" ex="false" tool="3" flavor2="0">
+            flavor2="4">
+        <ccTool>
+        </ccTool>
       </item>
       <item path="src/DataReaders/CSVDataReader.cpp" ex="false" tool="1" flavor2="8">
         <ccTool>
@@ -120,6 +122,13 @@
         </ccTool>
       </item>
       <item path="src/DataReaders/LineDataReader.cpp" ex="false" tool="1" flavor2="8">
+        <ccTool>
+        </ccTool>
+      </item>
+      <item path="src/DataReaders/MDArchiveDataReader.cpp"
+            ex="false"
+            tool="1"
+            flavor2="8">
         <ccTool>
         </ccTool>
       </item>

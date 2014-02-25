@@ -291,11 +291,15 @@
             <df name="DataPrograms.dir">
             </df>
           </df>
+          <in>AskBidBubbleChart.cpp</in>
+          <in>AskBidBubbleChart.h</in>
           <in>BuySellBarVisualisation.cpp</in>
           <in>BuySellBarVisualisation.h</in>
           <in>Visualisation.h</in>
         </df>
         <df name="DataReaders">
+          <df name="2014.01.02">
+          </df>
           <df name="CMakeFiles">
             <df name="DataReaders.dir">
             </df>
@@ -306,6 +310,8 @@
           <in>DataReader.h</in>
           <in>LineDataReader.cpp</in>
           <in>LineDataReader.h</in>
+          <in>MDArchiveDataReader.cpp</in>
+          <in>MDArchiveDataReader.h</in>
         </df>
         <df name="DataTypes">
           <df name="CMakeFiles">
@@ -315,6 +321,7 @@
           <in>CSVDataType.cpp</in>
           <in>CSVDataType.h</in>
           <in>DataType.h</in>
+          <in>MarketData.h</in>
           <in>StringDataType.h</in>
         </df>
         <df name="Exceptions">

@@ -145,8 +145,6 @@ Device::~Device(){
 // Print info from OVR 
 void Device::DebugHeadset(){
 
-	std::cout << std::endl << " Press ENTER to debug headset" << std::endl;
-
 	std::cin.get();
 
 	while (pSensor){

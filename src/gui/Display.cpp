@@ -164,10 +164,10 @@ void UpdateView(glm::vec3 eyeProjectionOffset, glm::vec3 eyeModelviewOffset){
         } else if(eulerAngles.x<-1.0){
             eulerAngles.x = -1.0;
         }
-        if(eulerAngles.y>1.3){
-            eulerAngles.y = 1.3;
-        } else if(eulerAngles.y<-1.3){
-            eulerAngles.y = -1.3;
+        if(eulerAngles.y>1.4){
+            eulerAngles.y = 1.4;
+        } else if(eulerAngles.y<-1.4){
+            eulerAngles.y = -1.4;
         }
         
         // Convert to GLM quaternion
