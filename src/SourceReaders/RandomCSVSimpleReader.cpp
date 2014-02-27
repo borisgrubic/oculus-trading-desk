@@ -11,7 +11,7 @@ RandomCSVSimpleReader::RandomCSVSimpleReader() :
 	first(true)
 {
 	srand(time(NULL));
-	int compNum = rand() % maxRndCompanies + 1;
+	int compNum = 5; // rand() % maxRndCompanies + 1;
 
 	for (int i = 0; i < compNum; ++i) {
 		companies.push_back(randomCompanies[i]);

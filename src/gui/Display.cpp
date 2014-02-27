@@ -26,6 +26,9 @@
 #include "DataPrograms/BuySellBarVisualisation.h"
 #include "DataPrograms/AskBidBubbleChart.h"
 #include "DataPrograms/LineGraph.h"
+#include "DataPrograms/HeatmapVisualisation.h"
+#include "DataPrograms/Heatmap2Visualisation.h"
+#include "DataPrograms/Graph3D.h"
 
 GLFWwindow* window;
 
@@ -44,6 +47,7 @@ Visualisation* visA;
 Visualisation* visC;
 Visualisation* visD;
 Visualisation* visE;
+Visualisation* visF;
 
 /* Global variables to hold device handles*/
 float aspectRatio;
@@ -122,7 +126,7 @@ void Init(bool displayOnScreen){
         
         // Create visualisations
         // Visualisation A (main screen)
-        visA = new LineGraph("LineGraph 1");
+        visA = new Graph3D("Graph3D 1");
         visA->InitBuffers();
         visA->InitProgram();
        
@@ -131,7 +135,7 @@ void Init(bool displayOnScreen){
         visB->InitBuffers();
         visB->InitProgram();
         // Visualisation C (left screen)
-        visC = new AskBidBubbleChart("Ask bid bubble chart 2");
+        visC = new Heatmap2Visualisation("Heatmap 2");
         visC->InitBuffers();
         visC->InitProgram();
         // Visualisation D (top screen)
@@ -139,16 +143,22 @@ void Init(bool displayOnScreen){
         visD->InitBuffers();
         visD->InitProgram();
         // Visualisation E (bottom screen)
-        visE = new BuySellBarVisualisation("Stock Buy Sell Data 3");
+        visE = new LineGraph("LineGraph 1");
         visE->InitBuffers();
         visE->InitProgram();
+        
+        visF = new HeatmapVisualisation("Heatmap 1");
+        visF->InitBuffers();
+        visF->InitProgram();
+
         
         // Set visualisation positions
         visA->SetPosition(glm::translate(0.0f, 0.0f, 0.0f), 0.0f, 0.0f);
         visB->SetPosition(glm::translate(2.0f, 0.0f, 0.0f), 0.0f, -70.0f);
-        visC->SetPosition(glm::translate(-2.0f, 0.0f, 0.0f), 0.0f, 70.0f);
+        visC->SetPosition(glm::translate(-2.0f, 0.5f, 0.0f), 0.0f, 70.0f);
         visD->SetPosition(glm::translate(0.0f, 2.0f, 0.0f), 45.0f, 0.0f);
         visE->SetPosition(glm::translate(0.0f, -2.0f, 0.0f), -45.0f, 0.0f);
+        visF->SetPosition(glm::translate(-4.5f, -1.5f, 0.0f), 0.0f, 80.0f);
         
 }
 
@@ -194,6 +204,7 @@ void UpdateView(glm::vec3 eyeProjectionOffset, glm::vec3 eyeModelviewOffset){
         visC->UpdateView(eyeModelview, eyeProjection);
         visD->UpdateView(eyeModelview, eyeProjection);
         visE->UpdateView(eyeModelview, eyeProjection);
+        visF->UpdateView(eyeModelview, eyeProjection);
 
 }
 
@@ -302,6 +313,7 @@ void RunDisplay(){
                         visC->Render();
                         visD->Render();
                         visE->Render();
+                        visF->Render();
                         glError();
                         
 

@@ -1,5 +1,5 @@
-#ifndef HEATMAP_VISUALISATION_H
-#define	HEATMAP_VISUALISATION_H
+#ifndef GRAPH_3D_H
+#define	GRAPH_3D_H
 
 #include <glm/glm.hpp>
 #include <glm/gtc/type_ptr.hpp>
@@ -8,32 +8,30 @@
 #include "Visualisation.h"
 #include "DataReaders/MDArchiveDataReader.h"
 
-class HeatmapVisualisation : public Visualisation {    
+class Graph3D : public Visualisation {    
         private:
-            vector<string> companies;
+            string company;
 
-            vector<int> retailStatesCnt;
-            vector<RetailState*> retailStates;
-            vector<MDArchiveDataReader*> readers;
+            int lastDoneCnt;
+            LastDone* lastDone;
+            MDArchiveDataReader* reader;
 
-            GLuint cellBuffer;
-            static float cell[];
+            GLuint blockBuffer;
+            static float block[];
 
             int currentIdx;
             int currentCycle;
             static int UPDATE_CYCLE_CNT;
+            static int SHOW_CNT;
 
         public:
-            HeatmapVisualisation(string);
-            ~HeatmapVisualisation();
+            Graph3D(string);
+            ~Graph3D();
             void InitBuffers();
             void InitProgram();
             void UpdateView(glm::mat4 eyeModelview, glm::mat4 eyeProjection);
             void SetPosition(glm::mat4 screenOffset, float rotX, float rotY);
             void Render();
-            
-            float getBid(RetailState, int);
-            float getAsk(RetailState, int);
 };
 
 

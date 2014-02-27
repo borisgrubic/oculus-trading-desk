@@ -12,7 +12,6 @@
 
 class BuySellBarVisualisation : public Visualisation {    
         private:
-            std::string name;
             // Vertex data
             static float divisor[32];
             static float bar[32];

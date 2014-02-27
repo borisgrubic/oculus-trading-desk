@@ -11,8 +11,12 @@
         <df name="DataPrograms">
           <in>AskBidBubbleChart.cpp</in>
           <in>BuySellBarVisualisation.cpp</in>
+          <in>Graph3D.cpp</in>
+          <in>Graph3D.h</in>
+          <in>Heatmap2Visualisation.cpp</in>
+          <in>Heatmap2Visualisation.h</in>
+          <in>HeatmapVisualisation.cpp</in>
           <in>LineGraph.cpp</in>
-          <in>LineGraph.h</in>
         </df>
         <df name="DataReaders">
           <in>CSVDataReader.cpp</in>
@@ -104,7 +108,7 @@
       <item path="src/DataPrograms/AskBidBubbleChart.cpp"
             ex="false"
             tool="1"
-            flavor2="4">
+            flavor2="8">
         <ccTool>
         </ccTool>
       </item>
@@ -115,9 +119,30 @@
         <ccTool>
         </ccTool>
       </item>
-      <item path="src/DataPrograms/LineGraph.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/DataPrograms/Graph3D.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/DataPrograms/LineGraph.h" ex="false" tool="3" flavor2="0">
+      <item path="src/DataPrograms/Graph3D.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/DataPrograms/Heatmap2Visualisation.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/DataPrograms/Heatmap2Visualisation.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/DataPrograms/HeatmapVisualisation.cpp"
+            ex="false"
+            tool="1"
+            flavor2="8">
+        <ccTool>
+        </ccTool>
+      </item>
+      <item path="src/DataPrograms/LineGraph.cpp" ex="false" tool="1" flavor2="4">
+        <ccTool>
+        </ccTool>
       </item>
       <item path="src/DataReaders/CSVDataReader.cpp" ex="false" tool="1" flavor2="8">
         <ccTool>

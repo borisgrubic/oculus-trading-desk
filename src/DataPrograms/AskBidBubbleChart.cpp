@@ -53,7 +53,7 @@ float AskBidBubbleChart::bubble[] = {
 	0.8f, 0.0f, 0.0f, 1.0f, 
         };
 
-AskBidBubbleChart::AskBidBubbleChart(std::string name){
+AskBidBubbleChart::AskBidBubbleChart(std::string name) {
     
     this->name = name;
     

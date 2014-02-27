@@ -1,12 +1,12 @@
 #include <iostream>
 #include <algorithm>
 
-#include "HeatmapVisualisation.h"
+#include "Heatmap2Visualisation.h"
 #include "gui/DisplayUtil.h"
 
 using namespace std;
 
-float HeatmapVisualisation::cell[] = {
+float Heatmap2Visualisation::cell[] = {
     // position
     -2.0f, 0.0f, -2.9f, 1.0f,
     -1.8f, 0.0f, -2.9f, 1.0f,
@@ -14,11 +14,11 @@ float HeatmapVisualisation::cell[] = {
     -2.0f, 0.2f, -2.9f, 1.0f
 };
 
-int HeatmapVisualisation::UPDATE_CYCLE_CNT = 60;
+int Heatmap2Visualisation::UPDATE_CYCLE_CNT = 60;
 
-HeatmapVisualisation::HeatmapVisualisation(string name) :
+Heatmap2Visualisation::Heatmap2Visualisation(string name) :
     currentIdx(0),
-    currentCycle(0)
+    currentCycle(1)
 {
     this->name = name;
     
@@ -65,12 +65,12 @@ HeatmapVisualisation::HeatmapVisualisation(string name) :
     cout << "[" + name + "] construction finished" << endl;
 }
 
-HeatmapVisualisation::~HeatmapVisualisation() {
+Heatmap2Visualisation::~Heatmap2Visualisation() {
     for (int i = 0; i < companies.size(); ++i)
         delete readers[i];
 }
 
-void HeatmapVisualisation::InitBuffers() {
+void Heatmap2Visualisation::InitBuffers() {
     glGenBuffers(1, &cellBuffer);
     glBindBuffer(GL_ARRAY_BUFFER, cellBuffer);
     glBufferData(GL_ARRAY_BUFFER, sizeof(cell), cell, GL_STATIC_DRAW);
@@ -79,7 +79,7 @@ void HeatmapVisualisation::InitBuffers() {
     cout << "[" << name << "] buffers loaded" << endl;
 }
 
-void HeatmapVisualisation::InitProgram() {
+void Heatmap2Visualisation::InitProgram() {
     vector<GLuint> shaderList;
     shaderList.push_back(CreateShader(GL_VERTEX_SHADER, vertexShader));
     shaderList.push_back(CreateShader(GL_FRAGMENT_SHADER, fragmentShader));
@@ -89,7 +89,7 @@ void HeatmapVisualisation::InitProgram() {
     cout << "[" << name << "] program initialized" << endl;
 }
 
-void HeatmapVisualisation::UpdateView(glm::mat4 eyeModelview, glm::mat4 eyeProjection) {
+void Heatmap2Visualisation::UpdateView(glm::mat4 eyeModelview, glm::mat4 eyeProjection) {
     glUseProgram(shaderProgram);
         GLuint modelViewMatUnif = glGetUniformLocation(shaderProgram, "modelViewMat");
         glUniformMatrix4fv(modelViewMatUnif, 1, GL_FALSE, glm::value_ptr(eyeModelview));
@@ -98,7 +98,7 @@ void HeatmapVisualisation::UpdateView(glm::mat4 eyeModelview, glm::mat4 eyeProje
     glUseProgram(0);
 }
 
-void HeatmapVisualisation::SetPosition(glm::mat4 screenOffset, float rotX, float rotY){
+void Heatmap2Visualisation::SetPosition(glm::mat4 screenOffset, float rotX, float rotY){
     glm::mat4 rotationYMat = glm::rotate(rotY , glm::vec3(0.0, 1.0, 0.0));
     glm::mat4 rotationXMat = glm::rotate(rotationYMat, rotX , glm::vec3(1.0, 0.0, 0.0));
     
@@ -111,12 +111,19 @@ void HeatmapVisualisation::SetPosition(glm::mat4 screenOffset, float rotX, float
     glUseProgram(0);
 }
 
-void HeatmapVisualisation::Render() {
+void Heatmap2Visualisation::Render() {
     bool last = true;
     glUseProgram(shaderProgram);
         for (int i = 0; i < companies.size(); ++i) {
             RetailState retailState;
+            RetailState prevRetailState;
             
+            int tmp = currentCycle - 1;
+            if (tmp < retailStatesCnt[i]) {
+                prevRetailState = retailStates[i][tmp];
+            } else {
+                prevRetailState = retailStates[i][retailStatesCnt[i] - 1];
+            }
             if (currentCycle < retailStatesCnt[i]) {
                 retailState = retailStates[i][currentCycle];
                 last = false;
@@ -124,24 +131,26 @@ void HeatmapVisualisation::Render() {
                 retailState = retailStates[i][retailStatesCnt[i] - 1];
             }
             
-            for (int j = 0; j < 25; ++j) {                
+            for (int j = 0; j < 10; ++j) {                
                 GLuint offset = glGetUniformLocation(shaderProgram, "offset");
-                glm::mat4 offsetMat = glm::translate(glm::mat4(1.0f), glm::vec3((float)(j * 0.21f), -(float)(i * 0.21f), 0.0f));
+                glm::mat4 offsetMat = glm::translate(glm::mat4(1.0f), glm::vec3((float)(j * 0.21f) + (j >= 5 ? 0.2f : 0.0f), -(float)(i * 0.21f), 0.0f));
                 glUniformMatrix4fv(offset, 1, GL_FALSE, glm::value_ptr(offsetMat));
 
                 GLuint color = glGetUniformLocation(shaderProgram, "recolor");
                 glm::vec4 colorVec;
-                float currBid = getBid(retailState, j / 5);
-                float currAsk = getAsk(retailState, j % 5);
-                
-                if (currAsk > currBid) {
-                    float diff = (currAsk - currBid) / currAsk * 100.0f;
+                float currVal = (j < 5 ? getBid(retailState, j) : getAsk(retailState, j - 5));
+                float lastVal = (j < 5 ? getBid(prevRetailState, j) : getAsk(prevRetailState, j - 5));
+                     
+                if (lastVal > currVal) {
+                    float diff = (lastVal - currVal) / lastVal * 1000.0f;
                     if (diff > 1.0f) diff = 1.0f;
-                    colorVec = glm::vec4(0.0f, diff, 0.0f, 1.0f);
+                    if (diff < 0.1) colorVec = glm::vec4(0.1, 0.1, 0.1, 1.0);
+                    else colorVec = glm::vec4(diff, 0.0f, 0.0f, 1.0f);
                 } else {
-                    float diff = (currBid - currAsk) / currBid * 100.0f;
+                    float diff = (currVal - lastVal) / currVal * 1000.0f;
                     if (diff > 1.0f) diff = 1.0f;
-                    colorVec = glm::vec4(diff, 0.0f, 0.0f, 1.0f);
+                    if (diff < 0.1) colorVec = glm::vec4(0.1, 0.1, 0.1, 1.0);
+                    else colorVec = glm::vec4(0.0f, diff, 0.0f, 1.0f);
                 }
                 
                 glUniform4fv(color, 1, glm::value_ptr(colorVec));
@@ -164,7 +173,7 @@ void HeatmapVisualisation::Render() {
     }
 }
 
-float HeatmapVisualisation::getBid(RetailState rs, int idx) {
+float Heatmap2Visualisation::getBid(RetailState rs, int idx) {
     if (idx == 0) return rs.bid_1_price;
     else if (idx == 1) return rs.bid_2_price;
     else if (idx == 2) return rs.bid_3_price;
@@ -172,7 +181,7 @@ float HeatmapVisualisation::getBid(RetailState rs, int idx) {
     else return rs.bid_5_price;
 }
 
-float HeatmapVisualisation::getAsk(RetailState rs, int idx) {
+float Heatmap2Visualisation::getAsk(RetailState rs, int idx) {
     if (idx == 0) return rs.ask_1_price;
     else if (idx == 1) return rs.ask_2_price;
     else if (idx == 2) return rs.ask_3_price;

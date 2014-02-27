@@ -1,5 +1,5 @@
-#ifndef HEATMAP_VISUALISATION_H
-#define	HEATMAP_VISUALISATION_H
+#ifndef HEATMAP2_VISUALISATION_H
+#define	HEATMAP2_VISUALISATION_H
 
 #include <glm/glm.hpp>
 #include <glm/gtc/type_ptr.hpp>
@@ -8,7 +8,7 @@
 #include "Visualisation.h"
 #include "DataReaders/MDArchiveDataReader.h"
 
-class HeatmapVisualisation : public Visualisation {    
+class Heatmap2Visualisation : public Visualisation {    
         private:
             vector<string> companies;
 
@@ -24,8 +24,8 @@ class HeatmapVisualisation : public Visualisation {
             static int UPDATE_CYCLE_CNT;
 
         public:
-            HeatmapVisualisation(string);
-            ~HeatmapVisualisation();
+            Heatmap2Visualisation(string);
+            ~Heatmap2Visualisation();
             void InitBuffers();
             void InitProgram();
             void UpdateView(glm::mat4 eyeModelview, glm::mat4 eyeProjection);

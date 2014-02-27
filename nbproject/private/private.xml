@@ -13,6 +13,8 @@
             <file>file:/home/oculus/trading-desk-project/code/src/gui/Display.cpp</file>
             <file>file:/home/oculus/trading-desk-project/code/src/gui/ScreenModel.cpp</file>
             <file>file:/home/oculus/trading-desk-project/code/src/io/Device.cpp</file>
+            <file>file:/home/oculus/trading-desk-project/code/src/DataPrograms/BuySellBarVisualisation.cpp</file>
+            <file>file:/home/oculus/trading-desk-project/code/src/SourceReaders/RandomCSVSimpleReader.cpp</file>
         </group>
     </open-files>
 </project-private>

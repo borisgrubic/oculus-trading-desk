@@ -21,6 +21,11 @@
 },
 {
   "directory": "/home/oculus/trading-desk-project/code/src/DataPrograms",
+  "command": "/usr/bin/g++   -DHAVE_CONFIG_H -D_GNU_SOURCE -Wall -Wextra -Werror -Wno-sign-compare -Wno-unused-result -Wno-unused-parameter -Wno-error=type-limits -Wno-error=unused-but-set-variable -Wno-inline -fno-strict-aliasing -Wno-unused-local-typedefs -Wno-unused-value -std=c++11 -O0 -ggdb  -I/home/oculus/trading-desk-project/code -I/home/oculus/trading-desk-project/code/src -I/home/oculus/trading-desk-project/code/ext/LibOVR/Include -I/usr/include/GL    -o CMakeFiles/DataPrograms.dir/Graph3D.cpp.o -c /home/oculus/trading-desk-project/code/src/DataPrograms/Graph3D.cpp",
+  "file": "/home/oculus/trading-desk-project/code/src/DataPrograms/Graph3D.cpp"
+},
+{
+  "directory": "/home/oculus/trading-desk-project/code/src/DataPrograms",
   "command": "/usr/bin/g++   -DHAVE_CONFIG_H -D_GNU_SOURCE -Wall -Wextra -Werror -Wno-sign-compare -Wno-unused-result -Wno-unused-parameter -Wno-error=type-limits -Wno-error=unused-but-set-variable -Wno-inline -fno-strict-aliasing -Wno-unused-local-typedefs -Wno-unused-value -std=c++11 -O0 -ggdb  -I/home/oculus/trading-desk-project/code -I/home/oculus/trading-desk-project/code/src -I/home/oculus/trading-desk-project/code/ext/LibOVR/Include -I/usr/include/GL    -o CMakeFiles/DataPrograms.dir/AskBidBubbleChart.cpp.o -c /home/oculus/trading-desk-project/code/src/DataPrograms/AskBidBubbleChart.cpp",
   "file": "/home/oculus/trading-desk-project/code/src/DataPrograms/AskBidBubbleChart.cpp"
 },
@@ -33,6 +38,11 @@
   "directory": "/home/oculus/trading-desk-project/code/src/DataPrograms",
   "command": "/usr/bin/g++   -DHAVE_CONFIG_H -D_GNU_SOURCE -Wall -Wextra -Werror -Wno-sign-compare -Wno-unused-result -Wno-unused-parameter -Wno-error=type-limits -Wno-error=unused-but-set-variable -Wno-inline -fno-strict-aliasing -Wno-unused-local-typedefs -Wno-unused-value -std=c++11 -O0 -ggdb  -I/home/oculus/trading-desk-project/code -I/home/oculus/trading-desk-project/code/src -I/home/oculus/trading-desk-project/code/ext/LibOVR/Include -I/usr/include/GL    -o CMakeFiles/DataPrograms.dir/LineGraph.cpp.o -c /home/oculus/trading-desk-project/code/src/DataPrograms/LineGraph.cpp",
   "file": "/home/oculus/trading-desk-project/code/src/DataPrograms/LineGraph.cpp"
+},
+{
+  "directory": "/home/oculus/trading-desk-project/code/src/DataPrograms",
+  "command": "/usr/bin/g++   -DHAVE_CONFIG_H -D_GNU_SOURCE -Wall -Wextra -Werror -Wno-sign-compare -Wno-unused-result -Wno-unused-parameter -Wno-error=type-limits -Wno-error=unused-but-set-variable -Wno-inline -fno-strict-aliasing -Wno-unused-local-typedefs -Wno-unused-value -std=c++11 -O0 -ggdb  -I/home/oculus/trading-desk-project/code -I/home/oculus/trading-desk-project/code/src -I/home/oculus/trading-desk-project/code/ext/LibOVR/Include -I/usr/include/GL    -o CMakeFiles/DataPrograms.dir/Heatmap2Visualisation.cpp.o -c /home/oculus/trading-desk-project/code/src/DataPrograms/Heatmap2Visualisation.cpp",
+  "file": "/home/oculus/trading-desk-project/code/src/DataPrograms/Heatmap2Visualisation.cpp"
 },
 {
   "directory": "/home/oculus/trading-desk-project/code/src/DataPrograms",

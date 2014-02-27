@@ -9,7 +9,6 @@
 
 class AskBidBubbleChart : public Visualisation {    
         private:
-            std::string name;
             // Vertex data
             static float xaxis[32];
             static float yaxis[32];
